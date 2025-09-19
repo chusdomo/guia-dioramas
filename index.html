@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Total para la Creación de Dioramas</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #333333;
+            --color-accent: #2c3e50;
+            --color-secondary: #3498db;
+            --color-light: #ecf0f1;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --color-bg: #1a1a2e;
+            --color-text: #e6e6e6;
+            --color-accent: #16213e;
+            --color-secondary: #0f3460;
+            --color-light: #162447;
+            --shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            padding-top: 70px; /* Espacio para la barra de navegación fija */
+        }
+
+        h1 {
+            font-size: 22px;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--color-secondary);
+            margin: 1.5rem 0 1rem 0;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: var(--color-accent);
+            margin: 1.2rem 0 0.8rem 0;
+        }
+
+        p, li, td, th {
+            font-size: 14px;
+            margin-bottom: 0.8rem;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Estilos para la barra de navegación fija */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background-color: var(--color-secondary);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .nav-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        /* Estilos para el contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* Estilos para el índice */
+        .index-container {
+            background-color: var(--color-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .index-item {
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .index-item:hover {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+
+        /* Estilos para la búsqueda */
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .search-result-item {
+            background-color: var(--color-light);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .search-result-item:hover {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+
+        /* Estilos para el contenido del capítulo */
+        .chapter-content {
+            background-color: var(--color-light);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        /* Estilos para tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        /* Estilos para iconos */
+        .icon {
+            font-size: 16px;
+            margin-right: 5px;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--color-accent);
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Estilos para mensajes de carga/errores */
+        .loading, .error {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: var(--color-secondary);
+        }
+
+        .error {
+            color: #e74c3c;
+        }
+
+        /* Estilos para el botón de modo oscuro */
+        #darkModeToggle {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        #darkModeToggle:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Media Queries para Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+
+            p, li, td, th {
+                font-size: 13px;
+            }
+
+            .nav-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            #searchInput {
+                width: 95%;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 15px;
+            }
+
+            p, li, td, th {
+                font-size: 12px;
+            }
+
+            .nav-btn {
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+
+            #darkModeToggle {
+                padding: 4px 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegación Fija -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <button id="prevBtn" class="nav-btn" disabled>◀ Anterior</button>
+            <button id="nextBtn" class="nav-btn">▶ Siguiente</button>
+            <button id="homeBtn" class="nav-btn">🔝 Inicio</button>
+        </div>
+        <h1 id="currentTitle">Guía Total para la Creación de Dioramas</h1>
+        <div class="nav-right">
+            <button id="indexBtn" class="nav-btn">📋 Índice</button>
+            <button id="searchBtn" class="nav-btn">🔍 Buscar</button>
+            <button id="darkModeToggle" class="nav-btn">🌓</button>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <div class="container">
+        <!-- Pantalla de Bienvenida / Inicio -->
+        <div id="homeScreen">
+            <div class="chapter-content">
+                <h1>Guía Total para la Creación de Dioramas</h1>
+                <p><em>"La oscuridad nunca tuvo chance."</em></p>
+                <p>Bienvenido a la guía más completa jamás escrita sobre la creación de dioramas. Este no es un simple manual; es tu mapa, tu taller y tu mentor.</p>
+                <p>Usa los botones de navegación para explorar las partes y capítulos, o haz clic en "Índice" para saltar directamente a la sección que necesitas.</p>
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="https://via.placeholder.com/800x400?text=Imagen+de+Portada+Diorama" alt="Imagen representativa de un diorama" style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow);">
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla del Índice -->
+        <div id="indexScreen" style="display: none;">
+            <div class="chapter-content">
+                <h2>📋 Índice Interactivo</h2>
+                <div id="indexList">
+                    <!-- El índice se generará dinámicamente con JavaScript -->
+                    <p>Cargando índice...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Búsqueda -->
+        <div id="searchScreen" style="display: none;">
+            <div class="chapter-content">
+                <h2>🔍 Búsqueda en la Guía</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Escribe para buscar en toda la guía...">
+                    <div id="searchResults" class="search-results">
+                        <!-- Los resultados se mostrarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Contenido del Capítulo -->
+        <div id="chapterScreen" style="display: none;">
+            <div class="chapter-content">
+                <h2 id="chapterTitle">Título del Capítulo</h2>
+                <div id="chapterContent">
+                    <!-- El contenido del capítulo se inyectará aquí -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla de Carga -->
+        <div id="loadingScreen" class="loading">
+            <p>Cargando la guía, por favor espera...</p>
+        </div>
+
+        <!-- Pantalla de Error -->
+        <div id="errorScreen" class="error" style="display: none;">
+            <p>¡Ups! Hubo un problema al cargar la guía.</p>
+            <p>Por favor, asegúrate de que el archivo <strong>guia-dioramas.json</strong> esté en la misma carpeta que este archivo HTML.</p>
+            <button id="retryBtn" class="nav-btn">Reintentar</button>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>Guía Total para la Creación de Dioramas | "La oscuridad nunca tuvo chance." 🌟</p>
+        <p>© 2024 - Tu Legado en Miniatura</p>
+    </footer>
+
+    <script>
+        // Estado de la aplicación
+        let guideData = null;
+        let currentIndex = -1; // -1 = pantalla de inicio
+        let darkMode = false;
+
+        // Elementos del DOM
+        const homeScreen = document.getElementById('homeScreen');
+        const indexScreen = document.getElementById('indexScreen');
+        const searchScreen = document.getElementById('searchScreen');
+        const chapterScreen = document.getElementById('chapterScreen');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const errorScreen = document.getElementById('errorScreen');
+        const indexList = document.getElementById('indexList');
+        const chapterTitle = document.getElementById('chapterTitle');
+        const chapterContent = document.getElementById('chapterContent');
+        const currentTitle = document.getElementById('currentTitle');
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        // Botones de navegación
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const homeBtn = document.getElementById('homeBtn');
+        const indexBtn = document.getElementById('indexBtn');
+        const searchBtn = document.getElementById('searchBtn');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const retryBtn = document.getElementById('retryBtn');
+
+        // Función para cargar el JSON
+        async function loadGuide() {
+            try {
+                showLoading();
+                const response = await fetch('guia-dioramas.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                guideData = await response.json();
+                hideLoading();
+                showHome();
+                buildIndex();
+                setupEventListeners();
+                loadUserPreferences();
+            } catch (error) {
+                console.error('Error al cargar la guía:', error);
+                showError();
+            }
+        }
+
+        // Función para mostrar la pantalla de carga
+        function showLoading() {
+            loadingScreen.style.display = 'block';
+            homeScreen.style.display = 'none';
+            indexScreen.style.display = 'none';
+            searchScreen.style.display = 'none';
+            chapterScreen.style.display = 'none';
+            errorScreen.style.display = 'none';
+        }
+
+        // Función para ocultar la pantalla de carga
+        function hideLoading() {
+            loadingScreen.style.display = 'none';
+        }
+
+        // Función para mostrar la pantalla de error
+        function showError() {
+            errorScreen.style.display = 'block';
+            loadingScreen.style.display = 'none';
+        }
+
+        // Función para mostrar la pantalla de inicio
+        function showHome() {
+            currentIndex = -1;
+            homeScreen.style.display = 'block';
+            indexScreen.style.display = 'none';
+            searchScreen.style.display = 'none';
+            chapterScreen.style.display = 'none';
+            updateNavButtons();
+            currentTitle.textContent = 'Guía Total para la Creación de Dioramas';
+        }
+
+        // Función para mostrar el índice
+        function showIndex() {
+            currentIndex = -2; // -2 = pantalla de índice
+            homeScreen.style.display = 'none';
+            indexScreen.style.display = 'block';
+            searchScreen.style.display = 'none';
+            chapterScreen.style.display = 'none';
+            updateNavButtons();
+            currentTitle.textContent = '📋 Índice Interactivo';
+        }
+
+        // Función para mostrar la pantalla de búsqueda
+        function showSearch() {
+            currentIndex = -3; // -3 = pantalla de búsqueda
+            homeScreen.style.display = 'none';
+            indexScreen.style.display = 'none';
+            searchScreen.style.display = 'block';
+            chapterScreen.style.display = 'none';
+            updateNavButtons();
+            currentTitle.textContent = '🔍 Búsqueda en la Guía';
+            searchInput.focus();
+        }
+
+        // Función para mostrar un capítulo
+        function showChapter(index) {
+            if (!guideData || !guideData.partes || index < 0 || index >= guideData.partes.length) {
+                return;
+            }
+            currentIndex = index;
+            const part = guideData.partes[index];
+            chapterTitle.textContent = `Parte ${part.numero}: ${part.titulo}`;
+            
+            // Construir el contenido del capítulo
+            let contentHTML = '';
+
+            // Si la parte tiene capítulos
+            if (part.capitulos) {
+                part.capitulos.forEach(capitulo => {
+                    contentHTML += `<h3>Capítulo ${capitulo.numero}: ${capitulo.titulo}</h3>`;
+                    
+                    // Recorrer el contenido del capítulo
+                    for (const [key, value] of Object.entries(capitulo.contenido)) {
+                        if (typeof value === 'string') {
+                            contentHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+                        } else if (Array.isArray(value)) {
+                            contentHTML += `<h4>${key}</h4><ul>`;
+                            value.forEach(item => {
+                                if (typeof item === 'string') {
+                                    contentHTML += `<li>${item}</li>`;
+                                } else if (typeof item === 'object') {
+                                    // Para objetos como materiales, herramientas, etc.
+                                    contentHTML += `<li>`;
+                                    for (const [subKey, subValue] of Object.entries(item)) {
+                                        contentHTML += `<strong>${subKey}:</strong> ${subValue}<br>`;
+                                    }
+                                    contentHTML += `</li>`;
+                                }
+                            });
+                            contentHTML += `</ul>`;
+                        } else if (typeof value === 'object') {
+                            // Para objetos anidados como fichas visuales, protocolos, etc.
+                            contentHTML += `<h4>${key}</h4>`;
+                            for (const [subKey, subValue] of Object.entries(value)) {
+                                if (typeof subValue === 'string') {
+                                    contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
+                                } else if (Array.isArray(subValue)) {
+                                    contentHTML += `<p><strong>${subKey}:</strong></p><ul>`;
+                                    subValue.forEach(item => {
+                                        contentHTML += `<li>${item}</li>`;
+                                    });
+                                    contentHTML += `</ul>`;
+                                } else if (typeof subValue === 'object') {
+                                    contentHTML += `<p><strong>${subKey}:</strong></p>`;
+                                    for (const [subSubKey, subSubValue] of Object.entries(subValue)) {
+                                        if (typeof subSubValue === 'string') {
+                                            contentHTML += `<p>${subSubKey}: ${subSubValue}</p>`;
+                                        } else if (Array.isArray(subSubValue)) {
+                                            contentHTML += `<p>${subSubKey}:</p><ul>`;
+                                            subSubValue.forEach(item => {
+                                                contentHTML += `<li>${item}</li>`;
+                                            });
+                                            contentHTML += `</ul>`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                // Si la parte no tiene capítulos, mostrar su contenido directamente
+                for (const [key, value] of Object.entries(part.contenido)) {
+                    if (typeof value === 'string') {
+                        contentHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+                    } else if (Array.isArray(value)) {
+                        contentHTML += `<h3>${key}</h3><ul>`;
+                        value.forEach(item => {
+                            contentHTML += `<li>${item}</li>`;
+                        });
+                        contentHTML += `</ul>`;
+                    } else if (typeof value === 'object') {
+                        contentHTML += `<h3>${key}</h3>`;
+                        for (const [subKey, subValue] of Object.entries(value)) {
+                            if (typeof subValue === 'string') {
+                                contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
+                            } else if (Array.isArray(subValue)) {
+                                contentHTML += `<p><strong>${subKey}:</strong></p><ul>`;
+                                subValue.forEach(item => {
+                                    contentHTML += `<li>${item}</li>`;
+                                });
+                                contentHTML += `</ul>`;
+                            }
+                        }
+                    }
+                }
+            }
+
+            chapterContent.innerHTML = contentHTML;
+            homeScreen.style.display = 'none';
+            indexScreen.style.display = 'none';
+            searchScreen.style.display = 'none';
+            chapterScreen.style.display = 'block';
+            updateNavButtons();
+            currentTitle.textContent = `Parte ${part.numero}: ${part.titulo}`;
+        }
+
+        // Función para construir el índice
+        function buildIndex() {
+            if (!guideData || !guideData.partes) {
+                indexList.innerHTML = '<p>No se pudo cargar el índice.</p>';
+                return;
+            }
+
+            let indexHTML = '';
+            guideData.partes.forEach((part, index) => {
+                indexHTML += `<div class="index-item" data-index="${index}">`;
+                indexHTML += `<strong>Parte ${part.numero}: ${part.titulo}</strong>`;
+                
+                // Si la parte tiene capítulos, los listamos
+                if (part.capitulos) {
+                    indexHTML += '<ul>';
+                    part.capitulos.forEach(capitulo => {
+                        indexHTML += `<li>Capítulo ${capitulo.numero}: ${capitulo.titulo}</li>`;
+                    });
+                    indexHTML += '</ul>';
+                }
+                indexHTML += `</div>`;
+            });
+
+            // Añadir el glosario si existe
+            if (guideData.glosario && guideData.glosario.length > 0) {
+                indexHTML += `<div class="index-item" data-index="glosario">`;
+                indexHTML += `<strong>Glosario de Términos Técnicos</strong>`;
+                indexHTML += `</div>`;
+            }
+
+            // Añadir la conclusión si existe
+            if (guideData.conclusion) {
+                indexHTML += `<div class="index-item" data-index="conclusion">`;
+                indexHTML += `<strong>Conclusión Final</strong>`;
+                indexHTML += `</div>`;
+            }
+
+            indexList.innerHTML = indexHTML;
+
+            // Añadir event listeners a los items del índice
+            document.querySelectorAll('.index-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const index = this.getAttribute('data-index');
+                    if (index === 'glosario') {
+                        showGlosario();
+                    } else if (index === 'conclusion') {
+                        showConclusion();
+                    } else {
+                        showChapter(parseInt(index));
+                    }
+                });
+            });
+        }
+
+        // Función para mostrar el glosario
+        function showGlosario() {
+            currentIndex = 'glosario';
+            chapterTitle.textContent = '📖 Glosario de Términos Técnicos';
+            
+            let contentHTML = '';
+            if (guideData.glosario && guideData.glosario.length > 0) {
+                guideData.glosario.forEach(termino => {
+                    contentHTML += `
+                        <h3>${termino.termino}</h3>
+                        <p>${termino.definicion}</p>
+                        <hr>
+                    `;
+                });
+            } else {
+                contentHTML = '<p>El glosario no está disponible.</p>';
+            }
+
+            chapterContent.innerHTML = contentHTML;
+            homeScreen.style.display = 'none';
+            indexScreen.style.display = 'none';
+            searchScreen.style.display = 'none';
+            chapterScreen.style.display = 'block';
+            updateNavButtons();
+            currentTitle.textContent = '📖 Glosario de Términos Técnicos';
+        }
+
+        // Función para mostrar la conclusión
+        function showConclusion() {
+            currentIndex = 'conclusion';
+            chapterTitle.textContent = '🌟 Conclusión Final';
+            
+            let contentHTML = '';
+            if (guideData.conclusion) {
+                contentHTML = `<p>${guideData.conclusion}</p>`;
+            } else {
+                contentHTML = '<p>La conclusión no está disponible.</p>';
+            }
+
+            chapterContent.innerHTML = contentHTML;
+            homeScreen.style.display = 'none';
+            indexScreen.style.display = 'none';
+            searchScreen.style.display = 'none';
+            chapterScreen.style.display = 'block';
+            updateNavButtons();
+            currentTitle.textContent = '🌟 Conclusión Final';
+        }
+
+        // Función para actualizar los botones de navegación
+        function updateNavButtons() {
+            if (!guideData || !guideData.partes) {
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+
+            if (currentIndex === -1 || currentIndex === -2 || currentIndex === -3 || currentIndex === 'glosario' || currentIndex === 'conclusion') {
+                prevBtn.disabled = true;
+                nextBtn.disabled = guideData.partes.length === 0;
+                if (guideData.partes.length > 0) {
+                    nextBtn.disabled = false;
+                }
+            } else if (currentIndex === 0) {
+                prevBtn.disabled = true;
+                nextBtn.disabled = guideData.partes.length <= 1;
+            } else if (currentIndex === guideData.partes.length - 1) {
+                prevBtn.disabled = false;
+                nextBtn.disabled = true;
+            } else {
+                prevBtn.disabled = false;
+                nextBtn.disabled = false;
+            }
+        }
+
+        // Función para manejar la búsqueda
+        function handleSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            if (query === '') {
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            let results = [];
+            
+            // Buscar en partes y capítulos
+            if (guideData.partes) {
+                guideData.partes.forEach((part, partIndex) => {
+                    // Buscar en el título de la parte
+                    if (part.titulo.toLowerCase().includes(query)) {
+                        results.push({
+                            title: `Parte ${part.numero}: ${part.titulo}`,
+                            type: 'parte',
+                            index: partIndex
+                        });
+                    }
+                    
+                    // Buscar en capítulos
+                    if (part.capitulos) {
+                        part.capitulos.forEach(capitulo => {
+                            if (capitulo.titulo.toLowerCase().includes(query)) {
+                                results.push({
+                                    title: `Capítulo ${capitulo.numero}: ${capitulo.titulo} (Parte ${part.numero})`,
+                                    type: 'capitulo',
+                                    partIndex: partIndex,
+                                    capituloNumero: capitulo.numero
+                                });
+                            }
+                            
+                            // Buscar en el contenido del capítulo (búsqueda superficial)
+                            for (const [key, value] of Object.entries(capitulo.contenido)) {
+                                if (typeof value === 'string' && value.toLowerCase().includes(query)) {
+                                    results.push({
+                                        title: `${key} (Capítulo ${capitulo.numero}, Parte ${part.numero})`,
+                                        type: 'contenido',
+                                        partIndex: partIndex,
+                                        capituloNumero: capitulo.numero,
+                                        snippet: value.substring(0, 100) + '...'
+                                    });
+                                } else if (Array.isArray(value)) {
+                                    value.forEach((item, itemIndex) => {
+                                        if (typeof item === 'string' && item.toLowerCase().includes(query)) {
+                                            results.push({
+                                                title: `${key} - Item ${itemIndex + 1} (Capítulo ${capitulo.numero}, Parte ${part.numero})`,
+                                                type: 'contenido',
+                                                partIndex: partIndex,
+                                                capituloNumero: capitulo.numero,
+                                                snippet: item.substring(0, 100) + '...'
+                                            });
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Buscar en el glosario
+            if (guideData.glosario) {
+                guideData.glosario.forEach((item, index) => {
+                    if (item.termino.toLowerCase().includes(query) || item.definicion.toLowerCase().includes(query)) {
+                        results.push({
+                            title: `Glosario: ${item.termino}`,
+                            type: 'glosario',
+                            index: index,
+                            snippet: item.definicion.substring(0, 100) + '...'
+                        });
+                    }
+                });
+            }
+
+            // Buscar en la conclusión
+            if (guideData.conclusion && guideData.conclusion.toLowerCase().includes(query)) {
+                results.push({
+                    title: 'Conclusión Final',
+                    type: 'conclusion',
+                    snippet: guideData.conclusion.substring(0, 100) + '...'
+                });
+            }
+
+            // Mostrar resultados
+            if (results.length === 0) {
+                searchResults.innerHTML = '<p>No se encontraron resultados.</p>';
+            } else {
+                let resultsHTML = `<p>Se encontraron ${results.length} resultado(s):</p>`;
+                results.forEach((result, index) => {
+                    resultsHTML += `
+                        <div class="search-result-item" data-type="${result.type}" data-index="${result.index || ''}" data-part-index="${result.partIndex || ''}" data-capitulo-numero="${result.capituloNumero || ''}">
+                            <h4>${index + 1}. ${result.title}</h4>
+                            ${result.snippet ? `<p>${result.snippet}</p>` : ''}
+                        </div>
+                    `;
+                });
+                searchResults.innerHTML = resultsHTML;
+
+                // Añadir event listeners a los resultados
+                document.querySelectorAll('.search-result-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const type = this.getAttribute('data-type');
+                        const index = this.getAttribute('data-index');
+                        const partIndex = this.getAttribute('data-part-index');
+                        
+                        if (type === 'parte') {
+                            showChapter(parseInt(index));
+                        } else if (type === 'capitulo' || type === 'contenido') {
+                            showChapter(parseInt(partIndex));
+                            // Podríamos intentar scrollear al capítulo específico, pero por simplicidad mostramos la parte
+                        } else if (type === 'glosario') {
+                            showGlosario();
+                        } else if (type === 'conclusion') {
+                            showConclusion();
+                        }
+                    });
+                });
+            }
+        }
+
+        // Función para alternar el modo oscuro
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            document.body.classList.toggle('dark-mode', darkMode);
+            darkModeToggle.textContent = darkMode ? '☀️' : '🌓';
+            // Guardar preferencia en localStorage
+            localStorage.setItem('darkMode', darkMode);
+        }
+
+        // Función para cargar las preferencias del usuario
+        function loadUserPreferences() {
+            // Cargar modo oscuro
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (savedDarkMode) {
+                darkMode = true;
+                document.body.classList.add('dark-mode');
+                darkModeToggle.textContent = '☀️';
+            }
+        }
+
+        // Función para configurar los event listeners
+        function setupEventListeners() {
+            // Botones de navegación
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    showChapter(currentIndex - 1);
+                } else if (currentIndex === 0) {
+                    showHome();
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex === -1 && guideData.partes.length > 0) {
+                    showChapter(0);
+                } else if (currentIndex >= 0 && currentIndex < guideData.partes.length - 1) {
+                    showChapter(currentIndex + 1);
+                }
+            });
+
+            homeBtn.addEventListener('click', showHome);
+            indexBtn.addEventListener('click', showIndex);
+            searchBtn.addEventListener('click', showSearch);
+
+            // Botón de modo oscuro
+            darkModeToggle.addEventListener('click', toggleDarkMode);
+
+            // Botón de reintento
+            retryBtn.addEventListener('click', loadGuide);
+
+            // Evento de búsqueda
+            searchInput.addEventListener('input', handleSearch);
+
+            // Evento de tecla Enter en la búsqueda
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+        }
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGuide();
+        });
+    </script>
+</body>
+</html>
