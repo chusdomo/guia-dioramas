@@ -5,911 +5,536 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía Total para la Creación de Dioramas</title>
     <style>
-        :root {
-            --color-bg: #ffffff;
-            --color-text: #333333;
-            --color-accent: #2c3e50;
-            --color-secondary: #3498db;
-            --color-light: #ecf0f1;
-            --shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .dark-mode {
-            --color-bg: #1a1a2e;
-            --color-text: #e6e6e6;
-            --color-accent: #16213e;
-            --color-secondary: #0f3460;
-            --color-light: #162447;
-            --shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            background: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
             line-height: 1.6;
-            transition: all 0.3s ease;
-            padding-top: 70px; /* Espacio para la barra de navegación fija */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
         }
 
         h1 {
-            font-size: 22px;
-            color: var(--color-accent);
-            margin-bottom: 1rem;
-            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #e67e22;
         }
 
         h2 {
-            font-size: 18px;
-            color: var(--color-secondary);
-            margin: 1.5rem 0 1rem 0;
-            border-bottom: 2px solid var(--color-secondary);
-            padding-bottom: 0.5rem;
-        }
-
-        h3 {
-            font-size: 16px;
-            color: var(--color-accent);
-            margin: 1.2rem 0 0.8rem 0;
-        }
-
-        p, li, td, th {
-            font-size: 14px;
-            margin-bottom: 0.8rem;
-        }
-
-        ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Estilos para la barra de navegación fija */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--color-accent);
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-        }
-
-        .nav-left, .nav-right {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .nav-btn {
-            background-color: var(--color-secondary);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-btn:hover {
-            background-color: #2980b9;
-        }
-
-        .nav-btn:disabled {
-            background-color: #95a5a6;
-            cursor: not-allowed;
-        }
-
-        /* Estilos para el contenedor principal */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            min-height: calc(100vh - 70px);
-        }
-
-        /* Estilos para el índice */
-        .index-container {
-            background-color: var(--color-light);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .index-item {
-            padding: 10px;
-            margin: 5px 0;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.2s;
-        }
-
-        .index-item:hover {
-            background-color: var(--color-secondary);
-            color: white;
-        }
-
-        /* Estilos para la búsqueda */
-        .search-container {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        #searchInput {
-            width: 80%;
-            max-width: 500px;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .search-results {
-            margin-top: 20px;
-        }
-
-        .search-result-item {
-            background-color: var(--color-light);
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-        }
-
-        .search-result-item:hover {
-            background-color: var(--color-secondary);
-            color: white;
-        }
-
-        /* Estilos para el contenido del capítulo */
-        .chapter-content {
-            background-color: var(--color-light);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-        }
-
-        /* Estilos para tablas */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 14px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--color-secondary);
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: rgba(52, 152, 219, 0.1);
-        }
-
-        /* Estilos para iconos */
-        .icon {
-            font-size: 16px;
-            margin-right: 5px;
-        }
-
-        /* Estilos para el pie de página */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--color-accent);
-            color: white;
+            font-size: 2em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
             margin-top: 40px;
         }
 
-        /* Estilos para mensajes de carga/errores */
-        .loading, .error {
-            text-align: center;
-            padding: 40px;
-            font-size: 18px;
-            color: var(--color-secondary);
+        h3 {
+            font-size: 1.5em;
+            color: #2980b9;
         }
 
-        .error {
-            color: #e74c3c;
+        .botones {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
         }
 
-        /* Estilos para el botón de modo oscuro */
-        #darkModeToggle {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
+        .botones button {
+            padding: 15px 25px;
             font-size: 16px;
-            margin-left: 10px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
         }
 
-        #darkModeToggle:hover {
-            background-color: rgba(255,255,255,0.1);
+        .botones button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        /* Media Queries para Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            h2 {
-                font-size: 16px;
-            }
-
-            p, li, td, th {
-                font-size: 13px;
-            }
-
-            .nav-btn {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
-
-            #searchInput {
-                width: 95%;
-                font-size: 13px;
-            }
+        .contenido {
+            text-align: left;
+            margin: 20px 0;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 18px;
-            }
+        .contenido ul, .contenido ol {
+            margin-left: 20px;
+        }
 
-            h2 {
-                font-size: 15px;
-            }
+        .ficha {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
 
-            p, li, td, th {
-                font-size: 12px;
-            }
+        .ficha h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
 
-            .nav-btn {
-                padding: 5px 8px;
-                font-size: 11px;
-            }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 12px;
+            font-size: 1.1em;
+        }
 
-            #darkModeToggle {
-                padding: 4px 8px;
-                font-size: 14px;
+        @media (min-width: 768px) {
+            .botones button {
+                width: auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Barra de Navegación Fija -->
-    <nav class="navbar">
-        <div class="nav-left">
-            <button id="prevBtn" class="nav-btn" disabled>◀ Anterior</button>
-            <button id="nextBtn" class="nav-btn">▶ Siguiente</button>
-            <button id="homeBtn" class="nav-btn">🔝 Inicio</button>
-        </div>
-        <h1 id="currentTitle">Guía Total para la Creación de Dioramas</h1>
-        <div class="nav-right">
-            <button id="indexBtn" class="nav-btn">📋 Índice</button>
-            <button id="searchBtn" class="nav-btn">🔍 Buscar</button>
-            <button id="darkModeToggle" class="nav-btn">🌓</button>
-        </div>
-    </nav>
-
-    <!-- Contenedor Principal -->
     <div class="container">
-        <!-- Pantalla de Bienvenida / Inicio -->
-        <div id="homeScreen">
-            <div class="chapter-content">
-                <h1>Guía Total para la Creación de Dioramas</h1>
-                <p><em>"La oscuridad nunca tuvo chance."</em></p>
-                <p>Bienvenido a la guía más completa jamás escrita sobre la creación de dioramas. Este no es un simple manual; es tu mapa, tu taller y tu mentor.</p>
-                <p>Usa los botones de navegación para explorar las partes y capítulos, o haz clic en "Índice" para saltar directamente a la sección que necesitas.</p>
-                <div style="text-align: center; margin: 30px 0;">
-                    <img src="https://via.placeholder.com/800x400?text=Imagen+de+Portada+Diorama" alt="Imagen representativa de un diorama" style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow);">
-                </div>
+
+        <!-- NIVEL 1: PANTALLA DE INICIO -->
+        <div id="inicio" class="pantalla">
+            <h1>Guía Total para la Creación de Dioramas</h1>
+            <p style="text-align: center; font-size: 1.2em; color: #7f8c8d;">“La oscuridad nunca tuvo chance.”</p>
+            <div class="botones">
+                <button onclick="mostrarCapitulo('cap1')">Capítulo 1: Introducción al Diorama</button>
+                <button onclick="mostrarCapitulo('cap2')">Capítulo 2: Planificación y Diseño</button>
+                <button onclick="mostrarCapitulo('cap3')">Capítulo 3: Materiales y Herramientas</button>
+                <button onclick="mostrarCapitulo('cap4')">Capítulo 4: Construcción del Terreno y Miniaturas</button>
+                <button onclick="mostrarCapitulo('cap5')">Capítulo 5: Escultura para Dioramas</button>
+                <button onclick="mostrarCapitulo('cap6')">Capítulo 6: Técnicas de Moldes y Reproducción</button>
+                <button onclick="mostrarCapitulo('cap7')">Capítulo 7: Fundamentos de la Pintura</button>
+                <button onclick="mostrarCapitulo('cap8')">Capítulo 8: Técnicas Avanzadas de Textura</button>
+                <button onclick="mostrarCapitulo('cap9')">Capítulo 9: Teoría del Color y Composición</button>
+                <button onclick="mostrarCapitulo('cap10')">Capítulo 10: Iluminación LED</button>
+                <button onclick="mostrarCapitulo('cap11')">Capítulo 11: Hierba Electrostática</button>
+                <button onclick="mostrarCapitulo('cap12')">Capítulo 12: Solución de Problemas Integral</button>
+                <button onclick="mostrarCapitulo('cap13')">Capítulo 13: Estilos Temáticos y Reciclaje</button>
+                <button onclick="mostrarCapitulo('cap14')">Capítulo 14: Organización y Exhibición</button>
+                <button onclick="mostrarCapitulo('cap15')">Capítulo 15: El Diorama como Arte</button>
+                <button onclick="mostrarCapitulo('anexos')">Anexos</button>
             </div>
         </div>
 
-        <!-- Pantalla del Índice -->
-        <div id="indexScreen" style="display: none;">
-            <div class="chapter-content">
-                <h2>📋 Índice Interactivo</h2>
-                <div id="indexList">
-                    <!-- El índice se generará dinámicamente con JavaScript -->
-                    <p>Cargando índice...</p>
-                </div>
+        <!-- NIVEL 2: PANTALLAS DE CAPÍTULO -->
+
+        <!-- Capítulo 1 -->
+        <div id="cap1" class="pantalla oculto">
+            <h2>Capítulo 1: Introducción al Diorama</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap1_1')">1.1. Definición, Historia, Tipos</button>
+                <button onclick="mostrarSeccion('cap1_2')">1.2. Clasificación por Estructura</button>
+                <button onclick="mostrarSeccion('cap1_3')">1.3. Clasificación por Contenido</button>
+                <button onclick="mostrarSeccion('cap1_4')">1.4. Aplicaciones en Pasatiempos</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
             </div>
         </div>
 
-        <!-- Pantalla de Búsqueda -->
-        <div id="searchScreen" style="display: none;">
-            <div class="chapter-content">
-                <h2>🔍 Búsqueda en la Guía</h2>
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Escribe para buscar en toda la guía...">
-                    <div id="searchResults" class="search-results">
-                        <!-- Los resultados se mostrarán aquí -->
-                    </div>
-                </div>
+        <!-- Capítulo 2 -->
+        <div id="cap2" class="pantalla oculto">
+            <h2>Capítulo 2: Planificación y Diseño</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap2_1')">2.1. Concepto y Tema</button>
+                <button onclick="mostrarSeccion('cap2_2')">2.2. Investigación y Referencias</button>
+                <button onclick="mostrarSeccion('cap2_3')">2.3. Selección de Escala</button>
+                <button onclick="mostrarSeccion('cap2_4')">2.4. Boceto y Composición</button>
+                <button onclick="mostrarSeccion('cap2_5')">2.5. Presupuesto y Recursos</button>
+                <button onclick="mostrarSeccion('cap2_6')">2.6. Checklist de Planificación</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
             </div>
         </div>
 
-        <!-- Pantalla de Contenido del Capítulo -->
-        <div id="chapterScreen" style="display: none;">
-            <div class="chapter-content">
-                <h2 id="chapterTitle">Título del Capítulo</h2>
-                <div id="chapterContent">
-                    <!-- El contenido del capítulo se inyectará aquí -->
-                </div>
+        <!-- Capítulo 3 -->
+        <div id="cap3" class="pantalla oculto">
+            <h2>Capítulo 3: Materiales y Herramientas</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap3_1')">3.1. Materiales para Base y Terreno</button>
+                <button onclick="mostrarSeccion('cap3_2')">3.2. Texturas, Vegetación, Agua</button>
+                <button onclick="mostrarSeccion('cap3_3')">3.3. Directorio de Materiales Reciclados</button>
+                <button onclick="mostrarSeccion('cap3_4')">3.4. Herramientas Esenciales</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
             </div>
         </div>
 
-        <!-- Pantalla de Carga -->
-        <div id="loadingScreen" class="loading">
-            <p>Cargando la guía, por favor espera...</p>
+        <!-- Capítulo 4 -->
+        <div id="cap4" class="pantalla oculto">
+            <h2>Capítulo 4: Construcción del Terreno y Miniaturas</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap4_1')">4.1. Construcción del Terreno</button>
+                <button onclick="mostrarSeccion('cap4_2')">4.2. Incorporación de Miniaturas</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
         </div>
 
-        <!-- Pantalla de Error -->
-        <div id="errorScreen" class="error" style="display: none;">
-            <p>¡Ups! Hubo un problema al cargar la guía.</p>
-            <p>Por favor, asegúrate de que el archivo <strong>guia-dioramas.json</strong> esté en la misma carpeta que este archivo HTML.</p>
-            <button id="retryBtn" class="nav-btn">Reintentar</button>
+        <!-- Capítulo 5 -->
+        <div id="cap5" class="pantalla oculto">
+            <h2>Capítulo 5: Escultura para Dioramas</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap5_1')">5.1. Materiales para Esculpir</button>
+                <button onclick="mostrarSeccion('cap5_2')">5.2. Herramientas Esenciales</button>
+                <button onclick="mostrarSeccion('cap5_3')">5.3. Técnicas Fundamentales</button>
+                <button onclick="mostrarSeccion('cap5_4')">5.4. Consejos Pro y Errores</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
         </div>
+
+        <!-- Capítulo 6 -->
+        <div id="cap6" class="pantalla oculto">
+            <h2>Capítulo 6: Técnicas de Moldes y Reproducción</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap6_1')">6.1. Materiales para Moldes</button>
+                <button onclick="mostrarSeccion('cap6_2')">6.2. Herramientas y Preparación</button>
+                <button onclick="mostrarSeccion('cap6_3')">6.3. Molde de 1 Parte</button>
+                <button onclick="mostrarSeccion('cap6_4')">6.4. Molde de 2 Partes</button>
+                <button onclick="mostrarSeccion('cap6_5')">6.5. Materiales para Reproducir</button>
+                <button onclick="mostrarSeccion('cap6_6')">6.6. Ficha Visual</button>
+                <button onclick="mostrarSeccion('cap6_7')">6.7. Ficha Narrativa</button>
+                <button onclick="mostrarSeccion('cap6_8')">6.8. Protocolo Experimental</button>
+                <button onclick="mostrarSeccion('cap6_9')">6.9. DIY</button>
+                <button onclick="mostrarSeccion('cap6_10')">6.10. Consejos Pro</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 7 -->
+        <div id="cap7" class="pantalla oculto">
+            <h2>Capítulo 7: Fundamentos de la Pintura</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap7_1')">7.1. Tipos de Pintura</button>
+                <button onclick="mostrarSeccion('cap7_2')">7.2. La Imprimación</button>
+                <button onclick="mostrarSeccion('cap7_3')">7.3. El Barnizado</button>
+                <button onclick="mostrarSeccion('cap7_4')">7.4. El Pincel</button>
+                <button onclick="mostrarSeccion('cap7_5')">7.5. El Aerógrafo</button>
+                <button onclick="mostrarSeccion('cap7_6')">7.6. Diluyentes y Solventes</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 8 -->
+        <div id="cap8" class="pantalla oculto">
+            <h2>Capítulo 8: Técnicas Avanzadas de Textura</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap8_1')">8.1. Efectos Ambientales</button>
+                <button onclick="mostrarSeccion('cap8_2')">8.2. Desgaste de Materiales</button>
+                <button onclick="mostrarSeccion('cap8_3')">8.3. Fluidos y Suelos</button>
+                <button onclick="mostrarSeccion('cap8_4')">8.4. Técnicas Universales</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 9 -->
+        <div id="cap9" class="pantalla oculto">
+            <h2>Capítulo 9: Teoría del Color y Composición</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap9_1')">9.1. Temperatura, Valor, Saturación</button>
+                <button onclick="mostrarSeccion('cap9_2')">9.2. Mezclas Económicas</button>
+                <button onclick="mostrarSeccion('cap9_3')">9.3. Principios de Composición</button>
+                <button onclick="mostrarSeccion('cap9_4')">9.4. Narrativa Visual</button>
+                <button onclick="mostrarSeccion('cap9_5')">9.5. Perspectiva Forzada</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 10 -->
+        <div id="cap10" class="pantalla oculto">
+            <h2>Capítulo 10: Iluminación LED</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap10_1')">10.1. Fundamentos del LED</button>
+                <button onclick="mostrarSeccion('cap10_2')">10.2. Tipos de LEDs</button>
+                <button onclick="mostrarSeccion('cap10_3')">10.3. Elección de Colores</button>
+                <button onclick="mostrarSeccion('cap10_4')">10.4. Cálculo de Resistencias</button>
+                <button onclick="mostrarSeccion('cap10_5')">10.5. Opciones de Alimentación</button>
+                <button onclick="mostrarSeccion('cap10_6')">10.6. Cableado y Ocultación</button>
+                <button onclick="mostrarSeccion('cap10_7')">10.7. Montaje y Fijación</button>
+                <button onclick="mostrarSeccion('cap10_8')">10.8. Errores Comunes</button>
+                <button onclick="mostrarSeccion('cap10_9')">10.9. 16 Recetas DIY</button>
+                <button onclick="mostrarSeccion('cap10_10')">10.10. Fibra Óptica</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 11 -->
+        <div id="cap11" class="pantalla oculto">
+            <h2>Capítulo 11: Hierba Electrostática</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap11_1')">11.1. Principios Fundamentales</button>
+                <button onclick="mostrarSeccion('cap11_2')">11.2. Tutorial Paso a Paso</button>
+                <button onclick="mostrarSeccion('cap11_3')">11.3. Consejos y Trucos</button>
+                <button onclick="mostrarSeccion('cap11_4')">11.4. Métodos Alternativos</button>
+                <button onclick="mostrarSeccion('cap11_5')">11.5. Aplicador DIY</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 12 -->
+        <div id="cap12" class="pantalla oculto">
+            <h2>Capítulo 12: Solución de Problemas Integral</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap12_1')">12.1. Estructura y Base</button>
+                <button onclick="mostrarSeccion('cap12_2')">12.2. Pintura y Acabados</button>
+                <button onclick="mostrarSeccion('cap12_3')">12.3. Materiales y Texturas</button>
+                <button onclick="mostrarSeccion('cap12_4')">12.4. Escala y Proporción</button>
+                <button onclick="mostrarSeccion('cap12_5')">12.5. Iluminación</button>
+                <button onclick="mostrarSeccion('cap12_6')">12.6. Conservación</button>
+                <button onclick="mostrarSeccion('cap12_7')">12.7. Transporte</button>
+                <button onclick="mostrarSeccion('cap12_8')">12.8. Tiempo y Planificación</button>
+                <button onclick="mostrarSeccion('cap12_9')">12.9. Problemas Técnicos</button>
+                <button onclick="mostrarSeccion('cap12_10')">12.10. Estética y Composición</button>
+                <button onclick="mostrarSeccion('cap12_11')">12.11. Seguridad</button>
+                <button onclick="mostrarSeccion('cap12_12')">12.12. Presupuesto</button>
+                <button onclick="mostrarSeccion('cap12_13')">12.13. Ambientales</button>
+                <button onclick="mostrarSeccion('cap12_14')">12.14. Documentación</button>
+                <button onclick="mostrarSeccion('cap12_15')">12.15. Sociales</button>
+                <button onclick="mostrarSeccion('cap12_16')">12.16. Herramientas</button>
+                <button onclick="mostrarSeccion('cap12_17')">12.17. Acabado Final</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 13 -->
+        <div id="cap13" class="pantalla oculto">
+            <h2>Capítulo 13: Estilos Temáticos y Reciclaje</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap13_1')">13.1. Características de Estilos</button>
+                <button onclick="mostrarSeccion('cap13_2')">13.2. Guía de Reciclaje Creativo</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 14 -->
+        <div id="cap14" class="pantalla oculto">
+            <h2>Capítulo 14: Organización y Exhibición</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap14_1')">14.1. Organización del Taller</button>
+                <button onclick="mostrarSeccion('cap14_2')">14.2. Kit de Emergencia</button>
+                <button onclick="mostrarSeccion('cap14_3')">14.3. Recursos para Aprender</button>
+                <button onclick="mostrarSeccion('cap14_4')">14.4. Exhibición y Fotografía</button>
+                <button onclick="mostrarSeccion('cap14_5')">14.5. Compartir tu Obra</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Capítulo 15 -->
+        <div id="cap15" class="pantalla oculto">
+            <h2>Capítulo 15: El Diorama como Arte</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('cap15_1')">15.1. Dominio Invisible</button>
+                <button onclick="mostrarSeccion('cap15_2')">15.2. Narrativa Visual</button>
+                <button onclick="mostrarSeccion('cap15_3')">15.3. Estilo Personal</button>
+                <button onclick="mostrarSeccion('cap15_4')">15.4. Innovación</button>
+                <button onclick="mostrarSeccion('cap15_5')">15.5. Enseñanza y Legado</button>
+                <button onclick="mostrarSeccion('cap15_6')">15.6. Integración Multidisciplinar</button>
+                <button onclick="mostrarSeccion('cap15_7')">15.7. Filosofía del Diorama</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Anexos -->
+        <div id="anexos" class="pantalla oculto">
+            <h2>Anexos</h2>
+            <div class="botones">
+                <button onclick="mostrarSeccion('glosario')">Glosario Ampliado</button>
+                <button onclick="mostrarSeccion('conclusion')">Conclusión Final</button>
+                <button onclick="mostrarInicio()">← Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- NIVEL 3: SECCIONES DETALLADAS -->
+
+        <!-- SECCIÓN: Capítulo 5.3 -->
+        <div id="cap5_3" class="pantalla oculto">
+            <h3>5.3. Técnicas Fundamentales</h3>
+            <div class="contenido">
+                <h4>A. Modelado Aditivo (Añadir Material)</h4>
+                <p><strong>Objetivo:</strong> Construir formas desde cero.</p>
+                <p><strong>Pasos:</strong></p>
+                <ol>
+                    <li>Crea una armadura (armature) básica con alambre o espuma.</li>
+                    <li>Añade material en capas, empezando por las formas grandes y terminando con los detalles finos.</li>
+                    <li>Usa herramientas para definir músculos, pliegues de ropa o texturas.</li>
+                </ol>
+
+                <div class="ficha">
+                    <h4>📸 FICHA VISUAL: MODELADO ADITIVO</h4>
+                    <ul>
+                        <li><strong>Foto “Antes”:</strong> Armadura de alambre desnuda.</li>
+                        <li><strong>Foto “Durante”:</strong> Añadiendo arcilla epoxi para formar el torso.</li>
+                        <li><strong>Foto “Después”:</strong> Figura con volumen y detalles básicos listos para pulir.</li>
+                        <li><strong>Error Común:</strong> Foto de una figura con proporciones desequilibradas. <strong>Solución:</strong> Usar calibres y referencias.</li>
+                    </ul>
+                </div>
+
+                <div class="ficha">
+                    <h4>📖 FICHA NARRATIVA: “La Roca que Sobrevivió al Diluvio”</h4>
+                    <ul>
+                        <li><strong>Historia:</strong> “Esta roca ha estado en el lecho de un río durante milenios. El agua la ha tallado, creando surcos profundos y superficies pulidas en los bordes expuestos”.</li>
+                        <li><strong>Técnicas:</strong> Tallar espuma XPS con cuchilla + lijar con grano 400 + pintar con veladuras grises y verdes.</li>
+                        <li><strong>Materiales:</strong> Espuma XPS, Cuchilla, Lija, Vallejo 70.984 Wood Brown, Vallejo 70.970 Sick Green.</li>
+                        <li><strong>Resultado Esperado:</strong> Una roca con textura orgánica, que parece moldeada por la naturaleza.</li>
+                    </ul>
+                </div>
+
+                <div class="ficha">
+                    <h4>📋 Protocolo Experimental: ESCULTURA</h4>
+                    <ul>
+                        <li><strong>Objetivo:</strong> Comparar la facilidad de modelado y el nivel de detalle de arcilla polimérica vs. arcilla epoxi.</li>
+                        <li><strong>Materiales:</strong> Arcilla polimérica Fimo, Arcilla epoxi Green Stuff, Herramientas de modelado, 2 figuras de prueba (cabeza humana).</li>
+                        <li><strong>Procedimiento:</strong>
+                            <ol>
+                                <li>Modelar una cabeza con Fimo.</li>
+                                <li>Modelar una cabeza idéntica con Green Stuff.</li>
+                                <li>Hornear la de Fimo. Dejar curar la de Green Stuff 24h.</li>
+                                <li>Comparar nivel de detalle, tiempo de trabajo y facilidad de corrección.</li>
+                            </ol>
+                        </li>
+                        <li><strong>Resultado Observado:</strong>
+                            <ul>
+                                <li>Fimo: Más tiempo para modelar, pero permite correcciones infinitas antes de hornear. Detalle excelente.</li>
+                                <li>Green Stuff: Tiempo limitado (30 min), pero se endurece sin horno. Detalle ligeramente inferior por la textura granulosa.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Conclusión:</strong> Fimo es ideal para piezas detalladas con tiempo. Green Stuff es ideal para reparaciones rápidas o piezas estructurales. Guardar muestras.</li>
+                    </ul>
+                </div>
+
+                <div class="ficha">
+                    <h4>🔧 DIY: CÓMO HACER TU PROPIA ARCILLA DE MODELAR CASERA</h4>
+                    <ul>
+                        <li><strong>Receta para Masilla Casera (Tipo Das):</strong>
+                            <ol>
+                                <li>Mezcla 1 taza de harina de trigo + 1/2 taza de sal fina + 1/2 taza de agua fría.</li>
+                                <li>Cocina a fuego medio, removiendo constantemente, hasta que forme una bola (5-7 min).</li>
+                                <li>Deja enfriar. Amasa hasta que quede suave.</li>
+                                <li>→ Almacena en bolsa hermética. Se seca al aire en 24-48h.</li>
+                                <li>💡 <strong>Consejo Pro DIY:</strong> Añade 1 cucharadita de aceite vegetal a la mezcla para hacerla más flexible y evitar grietas al secar.</li>
+                            </ol>
+                        </li>
+                        <li><strong>Receta para “Arcilla Epoxi” Casera:</strong>
+                            <ol>
+                                <li>Mezcla 1 parte de cola blanca (PVA) + 1 parte de bicarbonato de sodio.</li>
+                                <li>→ Esta mezcla se endurece al secar (24h) y es ideal para reparaciones pequeñas o detalles.</li>
+                                <li>💡 <strong>Consejo Pro DIY:</strong> Para mayor resistencia, añade unas gotas de vinagre blanco a la mezcla. Acelera el endurecimiento.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="botones">
+                <button onclick="mostrarCapitulo('cap5')">← Volver al Capítulo 5</button>
+                <button onclick="mostrarInicio()">🏠 Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: Glosario -->
+        <div id="glosario" class="pantalla oculto">
+            <h3>Glosario Ampliado de Términos Técnicos</h3>
+            <div class="contenido">
+                <p><strong>Zenithal:</strong> Técnica de imprimación que simula la luz cenital (desde arriba) usando colores claros en las zonas altas y oscuros en las bajas.</p>
+                <p><strong>Veladura:</strong> Capa de pintura muy diluida y translúcida que se aplica para modificar el color base sin ocultar los detalles.</p>
+                <p><strong>Pigmento:</strong> Polvo de color que se aplica en seco sobre una superficie para simular polvo, óxido o suciedad. Se fija con un medio.</p>
+                <p><strong>SMD (Surface Mount Device):</strong> Tipo de LED muy pequeño y plano, diseñado para montarse directamente sobre una superficie.</p>
+                <p><strong>PVA (PoliVinil Acetato):</strong> Pegamento blanco, base agua, muy versátil y no tóxico. Ideal para dioramas.</p>
+                <p><strong>Aerógrafo:</strong> Herramienta que pulveriza pintura mediante aire comprimido, permitiendo aplicaciones suaves y degradados.</p>
+                <p><strong>Lavado (Wash):</strong> Técnica que consiste en aplicar pintura muy diluida que fluye hacia las grietas y hendiduras para acentuar los detalles.</p>
+                <p><strong>Pincel Seco:</strong> Técnica que resalta los relieves aplicando pintura con un pincel casi seco.</p>
+                <p><strong>Chipping:</strong> Técnica que simula la pintura descascarada, revelando la capa inferior (generalmente metal).</p>
+                <p><strong>Perspectiva Forzada:</strong> Técnica visual que usa objetos de diferentes escalas para crear la ilusión de mayor profundidad.</p>
+                <p><strong>Imprimación:</strong> Capa base que prepara la superficie para la pintura, mejora la adherencia y resalta los detalles.</p>
+                <p><strong>Barniz Mate:</strong> Acabado sin brillo, perfecto para efectos de desgaste y realismo.</p>
+                <p><strong>Resina Epoxi:</strong> Material bicomponente transparente que se usa para simular agua, charcos o efectos de volumen.</p>
+                <p><strong>Hierba Electrostática:</strong> Fibras finas que se mantienen erguidas gracias a una carga electrostática, ideal para simular césped realista.</p>
+                <p><strong>Medium Craquelador:</strong> Producto que al secar hace que la pintura superior se agriete, simulando pintura envejecida.</p>
+                <p><strong>Abriluminación:</strong> Técnica de iluminación artificial en miniaturas para simular efectos de luz dinámicos.</p>
+            </div>
+            <div class="botones">
+                <button onclick="mostrarCapitulo('anexos')">← Volver a Anexos</button>
+                <button onclick="mostrarInicio()">🏠 Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: Conclusión Final -->
+        <div id="conclusion" class="pantalla oculto">
+            <h3>Conclusión Final: La Maestría es un Viaje, no un Destino</h3>
+            <div class="contenido">
+                <p>La verdadera maestría no es un punto final, sino un camino sin fin. Es la fusión perfecta de técnica, narrativa, estilo, innovación, enseñanza y multidisciplinariedad. Es cuando dejas de seguir reglas y empiezas a crearlas. Es cuando tu diorama no solo se mira, sino que se siente, se escucha y se recuerda.</p>
+                <p>Este manual no es un libro de instrucciones. Es un manifiesto. Es tu mapa para convertirte en el artista que siempre quisiste ser.</p>
+                <p>¡Ahora, toma tu pincel, tu cuaderno y tu imaginación, y pinta tu propia historia!</p>
+                <p style="text-align: center; font-size: 1.5em; color: #e67e22; margin-top: 30px;">🌟 La oscuridad nunca tuvo chance.</p>
+            </div>
+            <div class="botones">
+                <button onclick="mostrarCapitulo('anexos')">← Volver a Anexos</button>
+                <button onclick="mostrarInicio()">🏠 Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>Guía Total para la Creación de Dioramas — © 2025</p>
+            <p>“La oscuridad nunca tuvo chance.”</p>
+        </footer>
+
     </div>
 
-    <!-- Pie de Página -->
-    <footer>
-        <p>Guía Total para la Creación de Dioramas | "La oscuridad nunca tuvo chance." 🌟</p>
-        <p>© 2024 - Tu Legado en Miniatura</p>
-    </footer>
-
     <script>
-        // Estado de la aplicación
-        let guideData = null;
-        let currentIndex = -1; // -1 = pantalla de inicio
-        let darkMode = false;
-
-        // Elementos del DOM
-        const homeScreen = document.getElementById('homeScreen');
-        const indexScreen = document.getElementById('indexScreen');
-        const searchScreen = document.getElementById('searchScreen');
-        const chapterScreen = document.getElementById('chapterScreen');
-        const loadingScreen = document.getElementById('loadingScreen');
-        const errorScreen = document.getElementById('errorScreen');
-        const indexList = document.getElementById('indexList');
-        const chapterTitle = document.getElementById('chapterTitle');
-        const chapterContent = document.getElementById('chapterContent');
-        const currentTitle = document.getElementById('currentTitle');
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
-
-        // Botones de navegación
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const homeBtn = document.getElementById('homeBtn');
-        const indexBtn = document.getElementById('indexBtn');
-        const searchBtn = document.getElementById('searchBtn');
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const retryBtn = document.getElementById('retryBtn');
-
-        // Función para cargar el JSON
-        async function loadGuide() {
-            try {
-                showLoading();
-                const response = await fetch('guia-dioramas.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                guideData = await response.json();
-                hideLoading();
-                showHome();
-                buildIndex();
-                setupEventListeners();
-                loadUserPreferences();
-            } catch (error) {
-                console.error('Error al cargar la guía:', error);
-                showError();
-            }
-        }
-
-        // Función para mostrar la pantalla de carga
-        function showLoading() {
-            loadingScreen.style.display = 'block';
-            homeScreen.style.display = 'none';
-            indexScreen.style.display = 'none';
-            searchScreen.style.display = 'none';
-            chapterScreen.style.display = 'none';
-            errorScreen.style.display = 'none';
-        }
-
-        // Función para ocultar la pantalla de carga
-        function hideLoading() {
-            loadingScreen.style.display = 'none';
-        }
-
-        // Función para mostrar la pantalla de error
-        function showError() {
-            errorScreen.style.display = 'block';
-            loadingScreen.style.display = 'none';
-        }
-
         // Función para mostrar la pantalla de inicio
-        function showHome() {
-            currentIndex = -1;
-            homeScreen.style.display = 'block';
-            indexScreen.style.display = 'none';
-            searchScreen.style.display = 'none';
-            chapterScreen.style.display = 'none';
-            updateNavButtons();
-            currentTitle.textContent = 'Guía Total para la Creación de Dioramas';
-        }
-
-        // Función para mostrar el índice
-        function showIndex() {
-            currentIndex = -2; // -2 = pantalla de índice
-            homeScreen.style.display = 'none';
-            indexScreen.style.display = 'block';
-            searchScreen.style.display = 'none';
-            chapterScreen.style.display = 'none';
-            updateNavButtons();
-            currentTitle.textContent = '📋 Índice Interactivo';
-        }
-
-        // Función para mostrar la pantalla de búsqueda
-        function showSearch() {
-            currentIndex = -3; // -3 = pantalla de búsqueda
-            homeScreen.style.display = 'none';
-            indexScreen.style.display = 'none';
-            searchScreen.style.display = 'block';
-            chapterScreen.style.display = 'none';
-            updateNavButtons();
-            currentTitle.textContent = '🔍 Búsqueda en la Guía';
-            searchInput.focus();
+        function mostrarInicio() {
+            document.querySelectorAll('.pantalla').forEach(el => el.classList.add('oculto'));
+            document.getElementById('inicio').classList.remove('oculto');
         }
 
         // Función para mostrar un capítulo
-        function showChapter(index) {
-            if (!guideData || !guideData.partes || index < 0 || index >= guideData.partes.length) {
-                return;
-            }
-            currentIndex = index;
-            const part = guideData.partes[index];
-            chapterTitle.textContent = `Parte ${part.numero}: ${part.titulo}`;
-            
-            // Construir el contenido del capítulo
-            let contentHTML = '';
-
-            // Si la parte tiene capítulos
-            if (part.capitulos) {
-                part.capitulos.forEach(capitulo => {
-                    contentHTML += `<h3>Capítulo ${capitulo.numero}: ${capitulo.titulo}</h3>`;
-                    
-                    // Recorrer el contenido del capítulo
-                    for (const [key, value] of Object.entries(capitulo.contenido)) {
-                        if (typeof value === 'string') {
-                            contentHTML += `<p><strong>${key}:</strong> ${value}</p>`;
-                        } else if (Array.isArray(value)) {
-                            contentHTML += `<h4>${key}</h4><ul>`;
-                            value.forEach(item => {
-                                if (typeof item === 'string') {
-                                    contentHTML += `<li>${item}</li>`;
-                                } else if (typeof item === 'object') {
-                                    // Para objetos como materiales, herramientas, etc.
-                                    contentHTML += `<li>`;
-                                    for (const [subKey, subValue] of Object.entries(item)) {
-                                        contentHTML += `<strong>${subKey}:</strong> ${subValue}<br>`;
-                                    }
-                                    contentHTML += `</li>`;
-                                }
-                            });
-                            contentHTML += `</ul>`;
-                        } else if (typeof value === 'object') {
-                            // Para objetos anidados como fichas visuales, protocolos, etc.
-                            contentHTML += `<h4>${key}</h4>`;
-                            for (const [subKey, subValue] of Object.entries(value)) {
-                                if (typeof subValue === 'string') {
-                                    contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
-                                } else if (Array.isArray(subValue)) {
-                                    contentHTML += `<p><strong>${subKey}:</strong></p><ul>`;
-                                    subValue.forEach(item => {
-                                        contentHTML += `<li>${item}</li>`;
-                                    });
-                                    contentHTML += `</ul>`;
-                                } else if (typeof subValue === 'object') {
-                                    contentHTML += `<p><strong>${subKey}:</strong></p>`;
-                                    for (const [subSubKey, subSubValue] of Object.entries(subValue)) {
-                                        if (typeof subSubValue === 'string') {
-                                            contentHTML += `<p>${subSubKey}: ${subSubValue}</p>`;
-                                        } else if (Array.isArray(subSubValue)) {
-                                            contentHTML += `<p>${subSubKey}:</p><ul>`;
-                                            subSubValue.forEach(item => {
-                                                contentHTML += `<li>${item}</li>`;
-                                            });
-                                            contentHTML += `</ul>`;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                });
-            } else {
-                // Si la parte no tiene capítulos, mostrar su contenido directamente
-                for (const [key, value] of Object.entries(part.contenido)) {
-                    if (typeof value === 'string') {
-                        contentHTML += `<p><strong>${key}:</strong> ${value}</p>`;
-                    } else if (Array.isArray(value)) {
-                        contentHTML += `<h3>${key}</h3><ul>`;
-                        value.forEach(item => {
-                            contentHTML += `<li>${item}</li>`;
-                        });
-                        contentHTML += `</ul>`;
-                    } else if (typeof value === 'object') {
-                        contentHTML += `<h3>${key}</h3>`;
-                        for (const [subKey, subValue] of Object.entries(value)) {
-                            if (typeof subValue === 'string') {
-                                contentHTML += `<p><strong>${subKey}:</strong> ${subValue}</p>`;
-                            } else if (Array.isArray(subValue)) {
-                                contentHTML += `<p><strong>${subKey}:</strong></p><ul>`;
-                                subValue.forEach(item => {
-                                    contentHTML += `<li>${item}</li>`;
-                                });
-                                contentHTML += `</ul>`;
-                            }
-                        }
-                    }
-                }
-            }
-
-            chapterContent.innerHTML = contentHTML;
-            homeScreen.style.display = 'none';
-            indexScreen.style.display = 'none';
-            searchScreen.style.display = 'none';
-            chapterScreen.style.display = 'block';
-            updateNavButtons();
-            currentTitle.textContent = `Parte ${part.numero}: ${part.titulo}`;
+        function mostrarCapitulo(id) {
+            document.querySelectorAll('.pantalla').forEach(el => el.classList.add('oculto'));
+            document.getElementById(id).classList.remove('oculto');
         }
 
-        // Función para construir el índice
-        function buildIndex() {
-            if (!guideData || !guideData.partes) {
-                indexList.innerHTML = '<p>No se pudo cargar el índice.</p>';
-                return;
-            }
-
-            let indexHTML = '';
-            guideData.partes.forEach((part, index) => {
-                indexHTML += `<div class="index-item" data-index="${index}">`;
-                indexHTML += `<strong>Parte ${part.numero}: ${part.titulo}</strong>`;
-                
-                // Si la parte tiene capítulos, los listamos
-                if (part.capitulos) {
-                    indexHTML += '<ul>';
-                    part.capitulos.forEach(capitulo => {
-                        indexHTML += `<li>Capítulo ${capitulo.numero}: ${capitulo.titulo}</li>`;
-                    });
-                    indexHTML += '</ul>';
-                }
-                indexHTML += `</div>`;
-            });
-
-            // Añadir el glosario si existe
-            if (guideData.glosario && guideData.glosario.length > 0) {
-                indexHTML += `<div class="index-item" data-index="glosario">`;
-                indexHTML += `<strong>Glosario de Términos Técnicos</strong>`;
-                indexHTML += `</div>`;
-            }
-
-            // Añadir la conclusión si existe
-            if (guideData.conclusion) {
-                indexHTML += `<div class="index-item" data-index="conclusion">`;
-                indexHTML += `<strong>Conclusión Final</strong>`;
-                indexHTML += `</div>`;
-            }
-
-            indexList.innerHTML = indexHTML;
-
-            // Añadir event listeners a los items del índice
-            document.querySelectorAll('.index-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    if (index === 'glosario') {
-                        showGlosario();
-                    } else if (index === 'conclusion') {
-                        showConclusion();
-                    } else {
-                        showChapter(parseInt(index));
-                    }
-                });
-            });
+        // Función para mostrar una sección
+        function mostrarSeccion(id) {
+            document.querySelectorAll('.pantalla').forEach(el => el.classList.add('oculto'));
+            document.getElementById(id).classList.remove('oculto');
         }
 
-        // Función para mostrar el glosario
-        function showGlosario() {
-            currentIndex = 'glosario';
-            chapterTitle.textContent = '📖 Glosario de Términos Técnicos';
-            
-            let contentHTML = '';
-            if (guideData.glosario && guideData.glosario.length > 0) {
-                guideData.glosario.forEach(termino => {
-                    contentHTML += `
-                        <h3>${termino.termino}</h3>
-                        <p>${termino.definicion}</p>
-                        <hr>
-                    `;
-                });
-            } else {
-                contentHTML = '<p>El glosario no está disponible.</p>';
-            }
-
-            chapterContent.innerHTML = contentHTML;
-            homeScreen.style.display = 'none';
-            indexScreen.style.display = 'none';
-            searchScreen.style.display = 'none';
-            chapterScreen.style.display = 'block';
-            updateNavButtons();
-            currentTitle.textContent = '📖 Glosario de Términos Técnicos';
-        }
-
-        // Función para mostrar la conclusión
-        function showConclusion() {
-            currentIndex = 'conclusion';
-            chapterTitle.textContent = '🌟 Conclusión Final';
-            
-            let contentHTML = '';
-            if (guideData.conclusion) {
-                contentHTML = `<p>${guideData.conclusion}</p>`;
-            } else {
-                contentHTML = '<p>La conclusión no está disponible.</p>';
-            }
-
-            chapterContent.innerHTML = contentHTML;
-            homeScreen.style.display = 'none';
-            indexScreen.style.display = 'none';
-            searchScreen.style.display = 'none';
-            chapterScreen.style.display = 'block';
-            updateNavButtons();
-            currentTitle.textContent = '🌟 Conclusión Final';
-        }
-
-        // Función para actualizar los botones de navegación
-        function updateNavButtons() {
-            if (!guideData || !guideData.partes) {
-                prevBtn.disabled = true;
-                nextBtn.disabled = true;
-                return;
-            }
-
-            if (currentIndex === -1 || currentIndex === -2 || currentIndex === -3 || currentIndex === 'glosario' || currentIndex === 'conclusion') {
-                prevBtn.disabled = true;
-                nextBtn.disabled = guideData.partes.length === 0;
-                if (guideData.partes.length > 0) {
-                    nextBtn.disabled = false;
-                }
-            } else if (currentIndex === 0) {
-                prevBtn.disabled = true;
-                nextBtn.disabled = guideData.partes.length <= 1;
-            } else if (currentIndex === guideData.partes.length - 1) {
-                prevBtn.disabled = false;
-                nextBtn.disabled = true;
-            } else {
-                prevBtn.disabled = false;
-                nextBtn.disabled = false;
-            }
-        }
-
-        // Función para manejar la búsqueda
-        function handleSearch() {
-            const query = searchInput.value.toLowerCase().trim();
-            if (query === '') {
-                searchResults.innerHTML = '';
-                return;
-            }
-
-            let results = [];
-            
-            // Buscar en partes y capítulos
-            if (guideData.partes) {
-                guideData.partes.forEach((part, partIndex) => {
-                    // Buscar en el título de la parte
-                    if (part.titulo.toLowerCase().includes(query)) {
-                        results.push({
-                            title: `Parte ${part.numero}: ${part.titulo}`,
-                            type: 'parte',
-                            index: partIndex
-                        });
-                    }
-                    
-                    // Buscar en capítulos
-                    if (part.capitulos) {
-                        part.capitulos.forEach(capitulo => {
-                            if (capitulo.titulo.toLowerCase().includes(query)) {
-                                results.push({
-                                    title: `Capítulo ${capitulo.numero}: ${capitulo.titulo} (Parte ${part.numero})`,
-                                    type: 'capitulo',
-                                    partIndex: partIndex,
-                                    capituloNumero: capitulo.numero
-                                });
-                            }
-                            
-                            // Buscar en el contenido del capítulo (búsqueda superficial)
-                            for (const [key, value] of Object.entries(capitulo.contenido)) {
-                                if (typeof value === 'string' && value.toLowerCase().includes(query)) {
-                                    results.push({
-                                        title: `${key} (Capítulo ${capitulo.numero}, Parte ${part.numero})`,
-                                        type: 'contenido',
-                                        partIndex: partIndex,
-                                        capituloNumero: capitulo.numero,
-                                        snippet: value.substring(0, 100) + '...'
-                                    });
-                                } else if (Array.isArray(value)) {
-                                    value.forEach((item, itemIndex) => {
-                                        if (typeof item === 'string' && item.toLowerCase().includes(query)) {
-                                            results.push({
-                                                title: `${key} - Item ${itemIndex + 1} (Capítulo ${capitulo.numero}, Parte ${part.numero})`,
-                                                type: 'contenido',
-                                                partIndex: partIndex,
-                                                capituloNumero: capitulo.numero,
-                                                snippet: item.substring(0, 100) + '...'
-                                            });
-                                        }
-                                    });
-                                }
-                            }
-                        });
-                    }
-                });
-            }
-
-            // Buscar en el glosario
-            if (guideData.glosario) {
-                guideData.glosario.forEach((item, index) => {
-                    if (item.termino.toLowerCase().includes(query) || item.definicion.toLowerCase().includes(query)) {
-                        results.push({
-                            title: `Glosario: ${item.termino}`,
-                            type: 'glosario',
-                            index: index,
-                            snippet: item.definicion.substring(0, 100) + '...'
-                        });
-                    }
-                });
-            }
-
-            // Buscar en la conclusión
-            if (guideData.conclusion && guideData.conclusion.toLowerCase().includes(query)) {
-                results.push({
-                    title: 'Conclusión Final',
-                    type: 'conclusion',
-                    snippet: guideData.conclusion.substring(0, 100) + '...'
-                });
-            }
-
-            // Mostrar resultados
-            if (results.length === 0) {
-                searchResults.innerHTML = '<p>No se encontraron resultados.</p>';
-            } else {
-                let resultsHTML = `<p>Se encontraron ${results.length} resultado(s):</p>`;
-                results.forEach((result, index) => {
-                    resultsHTML += `
-                        <div class="search-result-item" data-type="${result.type}" data-index="${result.index || ''}" data-part-index="${result.partIndex || ''}" data-capitulo-numero="${result.capituloNumero || ''}">
-                            <h4>${index + 1}. ${result.title}</h4>
-                            ${result.snippet ? `<p>${result.snippet}</p>` : ''}
-                        </div>
-                    `;
-                });
-                searchResults.innerHTML = resultsHTML;
-
-                // Añadir event listeners a los resultados
-                document.querySelectorAll('.search-result-item').forEach(item => {
-                    item.addEventListener('click', function() {
-                        const type = this.getAttribute('data-type');
-                        const index = this.getAttribute('data-index');
-                        const partIndex = this.getAttribute('data-part-index');
-                        
-                        if (type === 'parte') {
-                            showChapter(parseInt(index));
-                        } else if (type === 'capitulo' || type === 'contenido') {
-                            showChapter(parseInt(partIndex));
-                            // Podríamos intentar scrollear al capítulo específico, pero por simplicidad mostramos la parte
-                        } else if (type === 'glosario') {
-                            showGlosario();
-                        } else if (type === 'conclusion') {
-                            showConclusion();
-                        }
-                    });
-                });
-            }
-        }
-
-        // Función para alternar el modo oscuro
-        function toggleDarkMode() {
-            darkMode = !darkMode;
-            document.body.classList.toggle('dark-mode', darkMode);
-            darkModeToggle.textContent = darkMode ? '☀️' : '🌓';
-            // Guardar preferencia en localStorage
-            localStorage.setItem('darkMode', darkMode);
-        }
-
-        // Función para cargar las preferencias del usuario
-        function loadUserPreferences() {
-            // Cargar modo oscuro
-            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-            if (savedDarkMode) {
-                darkMode = true;
-                document.body.classList.add('dark-mode');
-                darkModeToggle.textContent = '☀️';
-            }
-        }
-
-        // Función para configurar los event listeners
-        function setupEventListeners() {
-            // Botones de navegación
-            prevBtn.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    showChapter(currentIndex - 1);
-                } else if (currentIndex === 0) {
-                    showHome();
-                }
-            });
-
-            nextBtn.addEventListener('click', function() {
-                if (currentIndex === -1 && guideData.partes.length > 0) {
-                    showChapter(0);
-                } else if (currentIndex >= 0 && currentIndex < guideData.partes.length - 1) {
-                    showChapter(currentIndex + 1);
-                }
-            });
-
-            homeBtn.addEventListener('click', showHome);
-            indexBtn.addEventListener('click', showIndex);
-            searchBtn.addEventListener('click', showSearch);
-
-            // Botón de modo oscuro
-            darkModeToggle.addEventListener('click', toggleDarkMode);
-
-            // Botón de reintento
-            retryBtn.addEventListener('click', loadGuide);
-
-            // Evento de búsqueda
-            searchInput.addEventListener('input', handleSearch);
-
-            // Evento de tecla Enter en la búsqueda
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    handleSearch();
-                }
-            });
-        }
-
-        // Inicializar la aplicación
-        document.addEventListener('DOMContentLoaded', function() {
-            loadGuide();
-        });
+        // Iniciar en la pantalla de inicio
+        window.onload = mostrarInicio;
     </script>
+
+    <style>
+        .oculto {
+            display: none;
+        }
+        .pantalla {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
 </body>
 </html>
