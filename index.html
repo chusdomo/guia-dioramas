@@ -7,534 +7,2013 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
-
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 30px;
-        }
-
-        h1, h2, h3 {
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #e67e22;
-        }
-
-        h2 {
-            font-size: 2em;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-
-        h3 {
-            font-size: 1.5em;
-            color: #2980b9;
-        }
-
-        .botones {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .botones button {
-            padding: 15px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .botones button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        .contenido {
-            text-align: left;
-            margin: 20px 0;
-        }
-
-        .contenido ul, .contenido ol {
-            margin-left: 20px;
-        }
-
-        .ficha {
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .ficha h4 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
             padding: 20px;
-            background: #2c3e50;
-            color: white;
-            border-radius: 12px;
-            font-size: 1.1em;
         }
-
-        @media (min-width: 768px) {
-            .botones button {
-                width: auto;
-            }
+        h1 {
+            font-size: 22px;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 18px;
+            color: #34495e;
+            margin: 20px 0 15px;
+            padding: 10px;
+            background-color: #dde4e6;
+            border-radius: 5px;
+        }
+        h3 {
+            font-size: 18px;
+            color: #4a6fa5;
+            margin: 15px 0 10px;
+            padding: 8px;
+            background-color: #eaf2f8;
+            border-radius: 4px;
+        }
+        p, ul, ol {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #3498db;
+            color: white;
+            text-align: left;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .btn-home {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-home:hover {
+            background-color: #c0392b;
+        }
+        .screen {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .screen.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .content-block {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        .glossary-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        .glossary-term {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .conclusion {
+            font-style: italic;
+            background-color: #fff8e1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
         }
     </style>
 </head>
 <body>
     <div class="container">
-
-        <!-- NIVEL 1: PANTALLA DE INICIO -->
-        <div id="inicio" class="pantalla">
+        <!-- Pantalla Inicial -->
+        <div id="screen-home" class="screen active">
             <h1>Guía Total para la Creación de Dioramas</h1>
-            <p style="text-align: center; font-size: 1.2em; color: #7f8c8d;">“La oscuridad nunca tuvo chance.”</p>
-            <div class="botones">
-                <button onclick="mostrarCapitulo('cap1')">Capítulo 1: Introducción al Diorama</button>
-                <button onclick="mostrarCapitulo('cap2')">Capítulo 2: Planificación y Diseño</button>
-                <button onclick="mostrarCapitulo('cap3')">Capítulo 3: Materiales y Herramientas</button>
-                <button onclick="mostrarCapitulo('cap4')">Capítulo 4: Construcción del Terreno y Miniaturas</button>
-                <button onclick="mostrarCapitulo('cap5')">Capítulo 5: Escultura para Dioramas</button>
-                <button onclick="mostrarCapitulo('cap6')">Capítulo 6: Técnicas de Moldes y Reproducción</button>
-                <button onclick="mostrarCapitulo('cap7')">Capítulo 7: Fundamentos de la Pintura</button>
-                <button onclick="mostrarCapitulo('cap8')">Capítulo 8: Técnicas Avanzadas de Textura</button>
-                <button onclick="mostrarCapitulo('cap9')">Capítulo 9: Teoría del Color y Composición</button>
-                <button onclick="mostrarCapitulo('cap10')">Capítulo 10: Iluminación LED</button>
-                <button onclick="mostrarCapitulo('cap11')">Capítulo 11: Hierba Electrostática</button>
-                <button onclick="mostrarCapitulo('cap12')">Capítulo 12: Solución de Problemas Integral</button>
-                <button onclick="mostrarCapitulo('cap13')">Capítulo 13: Estilos Temáticos y Reciclaje</button>
-                <button onclick="mostrarCapitulo('cap14')">Capítulo 14: Organización y Exhibición</button>
-                <button onclick="mostrarCapitulo('cap15')">Capítulo 15: El Diorama como Arte</button>
-                <button onclick="mostrarCapitulo('anexos')">Anexos</button>
-            </div>
-        </div>
-
-        <!-- NIVEL 2: PANTALLAS DE CAPÍTULO -->
-
-        <!-- Capítulo 1 -->
-        <div id="cap1" class="pantalla oculto">
-            <h2>Capítulo 1: Introducción al Diorama</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap1_1')">1.1. Definición, Historia, Tipos</button>
-                <button onclick="mostrarSeccion('cap1_2')">1.2. Clasificación por Estructura</button>
-                <button onclick="mostrarSeccion('cap1_3')">1.3. Clasificación por Contenido</button>
-                <button onclick="mostrarSeccion('cap1_4')">1.4. Aplicaciones en Pasatiempos</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 2 -->
-        <div id="cap2" class="pantalla oculto">
-            <h2>Capítulo 2: Planificación y Diseño</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap2_1')">2.1. Concepto y Tema</button>
-                <button onclick="mostrarSeccion('cap2_2')">2.2. Investigación y Referencias</button>
-                <button onclick="mostrarSeccion('cap2_3')">2.3. Selección de Escala</button>
-                <button onclick="mostrarSeccion('cap2_4')">2.4. Boceto y Composición</button>
-                <button onclick="mostrarSeccion('cap2_5')">2.5. Presupuesto y Recursos</button>
-                <button onclick="mostrarSeccion('cap2_6')">2.6. Checklist de Planificación</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 3 -->
-        <div id="cap3" class="pantalla oculto">
-            <h2>Capítulo 3: Materiales y Herramientas</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap3_1')">3.1. Materiales para Base y Terreno</button>
-                <button onclick="mostrarSeccion('cap3_2')">3.2. Texturas, Vegetación, Agua</button>
-                <button onclick="mostrarSeccion('cap3_3')">3.3. Directorio de Materiales Reciclados</button>
-                <button onclick="mostrarSeccion('cap3_4')">3.4. Herramientas Esenciales</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 4 -->
-        <div id="cap4" class="pantalla oculto">
-            <h2>Capítulo 4: Construcción del Terreno y Miniaturas</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap4_1')">4.1. Construcción del Terreno</button>
-                <button onclick="mostrarSeccion('cap4_2')">4.2. Incorporación de Miniaturas</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 5 -->
-        <div id="cap5" class="pantalla oculto">
-            <h2>Capítulo 5: Escultura para Dioramas</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap5_1')">5.1. Materiales para Esculpir</button>
-                <button onclick="mostrarSeccion('cap5_2')">5.2. Herramientas Esenciales</button>
-                <button onclick="mostrarSeccion('cap5_3')">5.3. Técnicas Fundamentales</button>
-                <button onclick="mostrarSeccion('cap5_4')">5.4. Consejos Pro y Errores</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 6 -->
-        <div id="cap6" class="pantalla oculto">
-            <h2>Capítulo 6: Técnicas de Moldes y Reproducción</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap6_1')">6.1. Materiales para Moldes</button>
-                <button onclick="mostrarSeccion('cap6_2')">6.2. Herramientas y Preparación</button>
-                <button onclick="mostrarSeccion('cap6_3')">6.3. Molde de 1 Parte</button>
-                <button onclick="mostrarSeccion('cap6_4')">6.4. Molde de 2 Partes</button>
-                <button onclick="mostrarSeccion('cap6_5')">6.5. Materiales para Reproducir</button>
-                <button onclick="mostrarSeccion('cap6_6')">6.6. Ficha Visual</button>
-                <button onclick="mostrarSeccion('cap6_7')">6.7. Ficha Narrativa</button>
-                <button onclick="mostrarSeccion('cap6_8')">6.8. Protocolo Experimental</button>
-                <button onclick="mostrarSeccion('cap6_9')">6.9. DIY</button>
-                <button onclick="mostrarSeccion('cap6_10')">6.10. Consejos Pro</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 7 -->
-        <div id="cap7" class="pantalla oculto">
-            <h2>Capítulo 7: Fundamentos de la Pintura</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap7_1')">7.1. Tipos de Pintura</button>
-                <button onclick="mostrarSeccion('cap7_2')">7.2. La Imprimación</button>
-                <button onclick="mostrarSeccion('cap7_3')">7.3. El Barnizado</button>
-                <button onclick="mostrarSeccion('cap7_4')">7.4. El Pincel</button>
-                <button onclick="mostrarSeccion('cap7_5')">7.5. El Aerógrafo</button>
-                <button onclick="mostrarSeccion('cap7_6')">7.6. Diluyentes y Solventes</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 8 -->
-        <div id="cap8" class="pantalla oculto">
-            <h2>Capítulo 8: Técnicas Avanzadas de Textura</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap8_1')">8.1. Efectos Ambientales</button>
-                <button onclick="mostrarSeccion('cap8_2')">8.2. Desgaste de Materiales</button>
-                <button onclick="mostrarSeccion('cap8_3')">8.3. Fluidos y Suelos</button>
-                <button onclick="mostrarSeccion('cap8_4')">8.4. Técnicas Universales</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 9 -->
-        <div id="cap9" class="pantalla oculto">
-            <h2>Capítulo 9: Teoría del Color y Composición</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap9_1')">9.1. Temperatura, Valor, Saturación</button>
-                <button onclick="mostrarSeccion('cap9_2')">9.2. Mezclas Económicas</button>
-                <button onclick="mostrarSeccion('cap9_3')">9.3. Principios de Composición</button>
-                <button onclick="mostrarSeccion('cap9_4')">9.4. Narrativa Visual</button>
-                <button onclick="mostrarSeccion('cap9_5')">9.5. Perspectiva Forzada</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 10 -->
-        <div id="cap10" class="pantalla oculto">
-            <h2>Capítulo 10: Iluminación LED</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap10_1')">10.1. Fundamentos del LED</button>
-                <button onclick="mostrarSeccion('cap10_2')">10.2. Tipos de LEDs</button>
-                <button onclick="mostrarSeccion('cap10_3')">10.3. Elección de Colores</button>
-                <button onclick="mostrarSeccion('cap10_4')">10.4. Cálculo de Resistencias</button>
-                <button onclick="mostrarSeccion('cap10_5')">10.5. Opciones de Alimentación</button>
-                <button onclick="mostrarSeccion('cap10_6')">10.6. Cableado y Ocultación</button>
-                <button onclick="mostrarSeccion('cap10_7')">10.7. Montaje y Fijación</button>
-                <button onclick="mostrarSeccion('cap10_8')">10.8. Errores Comunes</button>
-                <button onclick="mostrarSeccion('cap10_9')">10.9. 16 Recetas DIY</button>
-                <button onclick="mostrarSeccion('cap10_10')">10.10. Fibra Óptica</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 11 -->
-        <div id="cap11" class="pantalla oculto">
-            <h2>Capítulo 11: Hierba Electrostática</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap11_1')">11.1. Principios Fundamentales</button>
-                <button onclick="mostrarSeccion('cap11_2')">11.2. Tutorial Paso a Paso</button>
-                <button onclick="mostrarSeccion('cap11_3')">11.3. Consejos y Trucos</button>
-                <button onclick="mostrarSeccion('cap11_4')">11.4. Métodos Alternativos</button>
-                <button onclick="mostrarSeccion('cap11_5')">11.5. Aplicador DIY</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 12 -->
-        <div id="cap12" class="pantalla oculto">
-            <h2>Capítulo 12: Solución de Problemas Integral</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap12_1')">12.1. Estructura y Base</button>
-                <button onclick="mostrarSeccion('cap12_2')">12.2. Pintura y Acabados</button>
-                <button onclick="mostrarSeccion('cap12_3')">12.3. Materiales y Texturas</button>
-                <button onclick="mostrarSeccion('cap12_4')">12.4. Escala y Proporción</button>
-                <button onclick="mostrarSeccion('cap12_5')">12.5. Iluminación</button>
-                <button onclick="mostrarSeccion('cap12_6')">12.6. Conservación</button>
-                <button onclick="mostrarSeccion('cap12_7')">12.7. Transporte</button>
-                <button onclick="mostrarSeccion('cap12_8')">12.8. Tiempo y Planificación</button>
-                <button onclick="mostrarSeccion('cap12_9')">12.9. Problemas Técnicos</button>
-                <button onclick="mostrarSeccion('cap12_10')">12.10. Estética y Composición</button>
-                <button onclick="mostrarSeccion('cap12_11')">12.11. Seguridad</button>
-                <button onclick="mostrarSeccion('cap12_12')">12.12. Presupuesto</button>
-                <button onclick="mostrarSeccion('cap12_13')">12.13. Ambientales</button>
-                <button onclick="mostrarSeccion('cap12_14')">12.14. Documentación</button>
-                <button onclick="mostrarSeccion('cap12_15')">12.15. Sociales</button>
-                <button onclick="mostrarSeccion('cap12_16')">12.16. Herramientas</button>
-                <button onclick="mostrarSeccion('cap12_17')">12.17. Acabado Final</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 13 -->
-        <div id="cap13" class="pantalla oculto">
-            <h2>Capítulo 13: Estilos Temáticos y Reciclaje</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap13_1')">13.1. Características de Estilos</button>
-                <button onclick="mostrarSeccion('cap13_2')">13.2. Guía de Reciclaje Creativo</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 14 -->
-        <div id="cap14" class="pantalla oculto">
-            <h2>Capítulo 14: Organización y Exhibición</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap14_1')">14.1. Organización del Taller</button>
-                <button onclick="mostrarSeccion('cap14_2')">14.2. Kit de Emergencia</button>
-                <button onclick="mostrarSeccion('cap14_3')">14.3. Recursos para Aprender</button>
-                <button onclick="mostrarSeccion('cap14_4')">14.4. Exhibición y Fotografía</button>
-                <button onclick="mostrarSeccion('cap14_5')">14.5. Compartir tu Obra</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Capítulo 15 -->
-        <div id="cap15" class="pantalla oculto">
-            <h2>Capítulo 15: El Diorama como Arte</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('cap15_1')">15.1. Dominio Invisible</button>
-                <button onclick="mostrarSeccion('cap15_2')">15.2. Narrativa Visual</button>
-                <button onclick="mostrarSeccion('cap15_3')">15.3. Estilo Personal</button>
-                <button onclick="mostrarSeccion('cap15_4')">15.4. Innovación</button>
-                <button onclick="mostrarSeccion('cap15_5')">15.5. Enseñanza y Legado</button>
-                <button onclick="mostrarSeccion('cap15_6')">15.6. Integración Multidisciplinar</button>
-                <button onclick="mostrarSeccion('cap15_7')">15.7. Filosofía del Diorama</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- Anexos -->
-        <div id="anexos" class="pantalla oculto">
-            <h2>Anexos</h2>
-            <div class="botones">
-                <button onclick="mostrarSeccion('glosario')">Glosario Ampliado</button>
-                <button onclick="mostrarSeccion('conclusion')">Conclusión Final</button>
-                <button onclick="mostrarInicio()">← Volver al Inicio</button>
-            </div>
-        </div>
-
-        <!-- NIVEL 3: SECCIONES DETALLADAS -->
-
-        <!-- SECCIÓN: Capítulo 5.3 -->
-        <div id="cap5_3" class="pantalla oculto">
-            <h3>5.3. Técnicas Fundamentales</h3>
-            <div class="contenido">
-                <h4>A. Modelado Aditivo (Añadir Material)</h4>
-                <p><strong>Objetivo:</strong> Construir formas desde cero.</p>
-                <p><strong>Pasos:</strong></p>
-                <ol>
-                    <li>Crea una armadura (armature) básica con alambre o espuma.</li>
-                    <li>Añade material en capas, empezando por las formas grandes y terminando con los detalles finos.</li>
-                    <li>Usa herramientas para definir músculos, pliegues de ropa o texturas.</li>
-                </ol>
-
-                <div class="ficha">
-                    <h4>📸 FICHA VISUAL: MODELADO ADITIVO</h4>
-                    <ul>
-                        <li><strong>Foto “Antes”:</strong> Armadura de alambre desnuda.</li>
-                        <li><strong>Foto “Durante”:</strong> Añadiendo arcilla epoxi para formar el torso.</li>
-                        <li><strong>Foto “Después”:</strong> Figura con volumen y detalles básicos listos para pulir.</li>
-                        <li><strong>Error Común:</strong> Foto de una figura con proporciones desequilibradas. <strong>Solución:</strong> Usar calibres y referencias.</li>
-                    </ul>
-                </div>
-
-                <div class="ficha">
-                    <h4>📖 FICHA NARRATIVA: “La Roca que Sobrevivió al Diluvio”</h4>
-                    <ul>
-                        <li><strong>Historia:</strong> “Esta roca ha estado en el lecho de un río durante milenios. El agua la ha tallado, creando surcos profundos y superficies pulidas en los bordes expuestos”.</li>
-                        <li><strong>Técnicas:</strong> Tallar espuma XPS con cuchilla + lijar con grano 400 + pintar con veladuras grises y verdes.</li>
-                        <li><strong>Materiales:</strong> Espuma XPS, Cuchilla, Lija, Vallejo 70.984 Wood Brown, Vallejo 70.970 Sick Green.</li>
-                        <li><strong>Resultado Esperado:</strong> Una roca con textura orgánica, que parece moldeada por la naturaleza.</li>
-                    </ul>
-                </div>
-
-                <div class="ficha">
-                    <h4>📋 Protocolo Experimental: ESCULTURA</h4>
-                    <ul>
-                        <li><strong>Objetivo:</strong> Comparar la facilidad de modelado y el nivel de detalle de arcilla polimérica vs. arcilla epoxi.</li>
-                        <li><strong>Materiales:</strong> Arcilla polimérica Fimo, Arcilla epoxi Green Stuff, Herramientas de modelado, 2 figuras de prueba (cabeza humana).</li>
-                        <li><strong>Procedimiento:</strong>
-                            <ol>
-                                <li>Modelar una cabeza con Fimo.</li>
-                                <li>Modelar una cabeza idéntica con Green Stuff.</li>
-                                <li>Hornear la de Fimo. Dejar curar la de Green Stuff 24h.</li>
-                                <li>Comparar nivel de detalle, tiempo de trabajo y facilidad de corrección.</li>
-                            </ol>
-                        </li>
-                        <li><strong>Resultado Observado:</strong>
-                            <ul>
-                                <li>Fimo: Más tiempo para modelar, pero permite correcciones infinitas antes de hornear. Detalle excelente.</li>
-                                <li>Green Stuff: Tiempo limitado (30 min), pero se endurece sin horno. Detalle ligeramente inferior por la textura granulosa.</li>
-                            </ul>
-                        </li>
-                        <li><strong>Conclusión:</strong> Fimo es ideal para piezas detalladas con tiempo. Green Stuff es ideal para reparaciones rápidas o piezas estructurales. Guardar muestras.</li>
-                    </ul>
-                </div>
-
-                <div class="ficha">
-                    <h4>🔧 DIY: CÓMO HACER TU PROPIA ARCILLA DE MODELAR CASERA</h4>
-                    <ul>
-                        <li><strong>Receta para Masilla Casera (Tipo Das):</strong>
-                            <ol>
-                                <li>Mezcla 1 taza de harina de trigo + 1/2 taza de sal fina + 1/2 taza de agua fría.</li>
-                                <li>Cocina a fuego medio, removiendo constantemente, hasta que forme una bola (5-7 min).</li>
-                                <li>Deja enfriar. Amasa hasta que quede suave.</li>
-                                <li>→ Almacena en bolsa hermética. Se seca al aire en 24-48h.</li>
-                                <li>💡 <strong>Consejo Pro DIY:</strong> Añade 1 cucharadita de aceite vegetal a la mezcla para hacerla más flexible y evitar grietas al secar.</li>
-                            </ol>
-                        </li>
-                        <li><strong>Receta para “Arcilla Epoxi” Casera:</strong>
-                            <ol>
-                                <li>Mezcla 1 parte de cola blanca (PVA) + 1 parte de bicarbonato de sodio.</li>
-                                <li>→ Esta mezcla se endurece al secar (24h) y es ideal para reparaciones pequeñas o detalles.</li>
-                                <li>💡 <strong>Consejo Pro DIY:</strong> Para mayor resistencia, añade unas gotas de vinagre blanco a la mezcla. Acelera el endurecimiento.</li>
-                            </ol>
-                        </li>
-                    </ul>
+            <p class="content-block" style="text-align: center; font-size: 18px; font-style: italic;">La oscuridad nunca tuvo chance.</p>
+            
+            <button class="btn" onclick="showScreen('screen-part-0')">Parte 0: El Manual del Usuario</button>
+            <button class="btn" onclick="showScreen('screen-part-I')">Parte I: Fundamentos y Planificación</button>
+            <button class="btn" onclick="showScreen('screen-part-II')">Parte II: Construcción Física</button>
+            <button class="btn" onclick="showScreen('screen-part-III')">Parte III: El Arte de la Superficie</button>
+            <button class="btn" onclick="showScreen('screen-part-IV')">Parte IV: Elementos Dinámicos y Ambientación</button>
+            <button class="btn" onclick="showScreen('screen-part-V')">Parte V: Estilo, Resolución y Perfeccionamiento</button>
+            <button class="btn" onclick="showScreen('screen-part-VI')">Parte VI: Del Taller a la Galería — Exhibición y Legado</button>
+            <button class="btn" onclick="showScreen('screen-part-VII')">Parte VII: La Maestría — El Viaje del Artista</button>
+            
+            <!-- Glosario y Conclusión en pantalla inicial -->
+            <div class="content-block">
+                <h2>Glosario</h2>
+                <div id="glosario-completo">
+                    <!-- El glosario se llenará con JavaScript -->
                 </div>
             </div>
-            <div class="botones">
-                <button onclick="mostrarCapitulo('cap5')">← Volver al Capítulo 5</button>
-                <button onclick="mostrarInicio()">🏠 Volver al Inicio</button>
+            
+            <div class="content-block conclusion">
+                <h2>Conclusión</h2>
+                <p id="conclusion-texto">La verdadera maestría no es un punto final, sino un camino sin fin. Es la fusión perfecta de técnica, narrativa, estilo, innovación, enseñanza y multidisciplinariedad. Es cuando dejas de seguir reglas y empiezas a crearlas. Es cuando tu diorama no solo se mira, sino que se siente, se escucha y se recuerda. Este manual no es un libro de instrucciones. Es un manifiesto. Es tu mapa para convertirte en el artista que siempre quisiste ser. ¡Ahora, toma tu pincel, tu cuaderno y tu imaginación, y pinta tu propia historia! 🌟 La oscuridad nunca tuvo chance.</p>
             </div>
         </div>
 
-        <!-- SECCIÓN: Glosario -->
-        <div id="glosario" class="pantalla oculto">
-            <h3>Glosario Ampliado de Términos Técnicos</h3>
-            <div class="contenido">
-                <p><strong>Zenithal:</strong> Técnica de imprimación que simula la luz cenital (desde arriba) usando colores claros en las zonas altas y oscuros en las bajas.</p>
-                <p><strong>Veladura:</strong> Capa de pintura muy diluida y translúcida que se aplica para modificar el color base sin ocultar los detalles.</p>
-                <p><strong>Pigmento:</strong> Polvo de color que se aplica en seco sobre una superficie para simular polvo, óxido o suciedad. Se fija con un medio.</p>
-                <p><strong>SMD (Surface Mount Device):</strong> Tipo de LED muy pequeño y plano, diseñado para montarse directamente sobre una superficie.</p>
-                <p><strong>PVA (PoliVinil Acetato):</strong> Pegamento blanco, base agua, muy versátil y no tóxico. Ideal para dioramas.</p>
-                <p><strong>Aerógrafo:</strong> Herramienta que pulveriza pintura mediante aire comprimido, permitiendo aplicaciones suaves y degradados.</p>
-                <p><strong>Lavado (Wash):</strong> Técnica que consiste en aplicar pintura muy diluida que fluye hacia las grietas y hendiduras para acentuar los detalles.</p>
-                <p><strong>Pincel Seco:</strong> Técnica que resalta los relieves aplicando pintura con un pincel casi seco.</p>
-                <p><strong>Chipping:</strong> Técnica que simula la pintura descascarada, revelando la capa inferior (generalmente metal).</p>
-                <p><strong>Perspectiva Forzada:</strong> Técnica visual que usa objetos de diferentes escalas para crear la ilusión de mayor profundidad.</p>
-                <p><strong>Imprimación:</strong> Capa base que prepara la superficie para la pintura, mejora la adherencia y resalta los detalles.</p>
-                <p><strong>Barniz Mate:</strong> Acabado sin brillo, perfecto para efectos de desgaste y realismo.</p>
-                <p><strong>Resina Epoxi:</strong> Material bicomponente transparente que se usa para simular agua, charcos o efectos de volumen.</p>
-                <p><strong>Hierba Electrostática:</strong> Fibras finas que se mantienen erguidas gracias a una carga electrostática, ideal para simular césped realista.</p>
-                <p><strong>Medium Craquelador:</strong> Producto que al secar hace que la pintura superior se agriete, simulando pintura envejecida.</p>
-                <p><strong>Abriluminación:</strong> Técnica de iluminación artificial en miniaturas para simular efectos de luz dinámicos.</p>
-            </div>
-            <div class="botones">
-                <button onclick="mostrarCapitulo('anexos')">← Volver a Anexos</button>
-                <button onclick="mostrarInicio()">🏠 Volver al Inicio</button>
+        <!-- Pantallas de Partes (se generarán dinámicamente) -->
+        <!-- Ejemplo de estructura para una parte -->
+        <div id="screen-part-0" class="screen">
+            <a href="#" class="btn-home" onclick="showScreen('screen-home'); return false;">Inicio</a>
+            <h1>Parte 0: El Manual del Usuario</h1>
+            <div id="part-0-chapters">
+                <!-- Los capítulos se generarán aquí -->
             </div>
         </div>
 
-        <!-- SECCIÓN: Conclusión Final -->
-        <div id="conclusion" class="pantalla oculto">
-            <h3>Conclusión Final: La Maestría es un Viaje, no un Destino</h3>
-            <div class="contenido">
-                <p>La verdadera maestría no es un punto final, sino un camino sin fin. Es la fusión perfecta de técnica, narrativa, estilo, innovación, enseñanza y multidisciplinariedad. Es cuando dejas de seguir reglas y empiezas a crearlas. Es cuando tu diorama no solo se mira, sino que se siente, se escucha y se recuerda.</p>
-                <p>Este manual no es un libro de instrucciones. Es un manifiesto. Es tu mapa para convertirte en el artista que siempre quisiste ser.</p>
-                <p>¡Ahora, toma tu pincel, tu cuaderno y tu imaginación, y pinta tu propia historia!</p>
-                <p style="text-align: center; font-size: 1.5em; color: #e67e22; margin-top: 30px;">🌟 La oscuridad nunca tuvo chance.</p>
-            </div>
-            <div class="botones">
-                <button onclick="mostrarCapitulo('anexos')">← Volver a Anexos</button>
-                <button onclick="mostrarInicio()">🏠 Volver al Inicio</button>
+        <!-- Pantallas de Capítulos (se generarán dinámicamente) -->
+        <!-- Ejemplo de estructura para un capítulo -->
+        <div id="screen-chapter-0-1" class="screen">
+            <a href="#" class="btn-home" onclick="showScreen('screen-part-0'); return false;">Inicio</a>
+            <h1>Capítulo 1: Cómo Dominar Esta Guía</h1>
+            <div id="chapter-0-1-content">
+                <!-- El contenido del capítulo se generará aquí -->
             </div>
         </div>
 
-        <!-- FOOTER -->
-        <footer>
-            <p>Guía Total para la Creación de Dioramas — © 2025</p>
-            <p>“La oscuridad nunca tuvo chance.”</p>
-        </footer>
+        <!-- Pantallas de Subsecciones (se generarán dinámicamente) -->
+        <!-- Ejemplo de estructura para una subsección -->
+        <div id="screen-subsection-0-1-1" class="screen">
+            <a href="#" class="btn-home" onclick="showScreen('screen-chapter-0-1'); return false;">Inicio</a>
+            <h1>0.1. Navegación</h1>
+            <div id="subsection-0-1-1-content">
+                <!-- El contenido de la subsección se generará aquí -->
+            </div>
+        </div>
 
+        <!-- Scripts -->
+        <script>
+            // Datos del JSON
+            const data = {
+                "titulo": "Guía Total para la Creación de Dioramas",
+                "subtitulo": "La oscuridad nunca tuvo chance.",
+                "partes": [
+                    {
+                        "numero": "0",
+                        "titulo": "El Manual del Usuario",
+                        "descripcion": "Cómo Dominar Esta Guía",
+                        "contenido": {
+                            "navegacion": "Estructura Modular: La guía está dividida en 7 Partes, cada una enfocada en una etapa del proceso creativo. Puedes saltar directamente a la sección que necesitas.",
+                            "iconos_referencia": [
+                                {
+                                    "icono": "📸",
+                                    "nombre": "Ficha Visual",
+                                    "descripcion": "Fotos paso a paso, antes/después, errores comunes."
+                                },
+                                {
+                                    "icono": "📖",
+                                    "nombre": "Ficha Narrativa",
+                                    "descripcion": "Historias que dan contexto y propósito a las técnicas."
+                                },
+                                {
+                                    "icono": "📋",
+                                    "nombre": "Protocolo Experimental",
+                                    "descripcion": "Métodos científicos para probar materiales y técnicas."
+                                },
+                                {
+                                    "icono": "🔧",
+                                    "nombre": "Receta DIY",
+                                    "descripcion": "Soluciones caseras, económicas y creativas."
+                                },
+                                {
+                                    "icono": "⚠️",
+                                    "nombre": "Advertencia/Consejo Pro",
+                                    "descripcion": "Información crítica de seguridad o eficiencia."
+                                }
+                            ],
+                            "glosario": "Define términos como \"zenithal\", \"veladura\", \"pigmento\", \"SMD\", \"PVA\", etc. (Ver Anexo al Final)."
+                        }
+                    },
+                    {
+                        "numero": "I",
+                        "titulo": "Fundamentos y Planificación",
+                        "capitulos": [
+                            {
+                                "numero": "1",
+                                "titulo": "Introducción al Diorama",
+                                "contenido": {
+                                    "definicion": "Representación tridimensional a escala reducida para ofrecer una experiencia visual envolvente y tangible.",
+                                    "clasificacion": {
+                                        "por_estructura": [
+                                            "Dioramas de Caja",
+                                            "Dioramas Panorámicos"
+                                        ],
+                                        "por_contenido": [
+                                            "Históricos",
+                                            "Científicos",
+                                            "Artísticos",
+                                            "Comerciales",
+                                            "Fantasía / Futurista / Urbano / Naturaleza / Interiores"
+                                        ]
+                                    },
+                                    "aplicaciones": "Modelismo ferroviario, modelismo militar, juegos de miniaturas."
+                                }
+                            },
+                            {
+                                "numero": "2",
+                                "titulo": "Planificación y Diseño",
+                                "contenido": {
+                                    "pasos": [
+                                        "Concepto y Tema",
+                                        "Investigación",
+                                        "Selección de Escala (1:24, 1:35, 1:43, 1:64, 1:72, 1:87)",
+                                        "Perspectiva Forzada",
+                                        "Boceto y Composición",
+                                        "Presupuesto y Recursos (+20% margen)",
+                                        "Cronograma (+30% margen)"
+                                    ],
+                                    "checklist": [
+                                        "Concepto definido",
+                                        "10+ imágenes de referencia recopiladas",
+                                        "Escala seleccionada y verificada",
+                                        "Boceto a lápiz terminado",
+                                        "Lista de materiales con precios estimados",
+                                        "Presupuesto final con margen de +20%",
+                                        "Cronograma con fechas clave y margen de +30%"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "numero": "II",
+                        "titulo": "Construcción Física",
+                        "capitulos": [
+                            {
+                                "numero": "3",
+                                "titulo": "Materiales y Herramientas",
+                                "contenido": {
+                                    "materiales_base": [
+                                        "Cartón Pluma",
+                                        "Madera Contrachapada",
+                                        "MDF (mínimo 15 mm)",
+                                        "Porexpán"
+                                    ],
+                                    "materiales_terreno": [
+                                        "Espuma (XPS/EPS)",
+                                        "Corcho",
+                                        "Pasta para modelar (Das, Milliput)",
+                                        "Arcilla polimérica",
+                                        "Papel Maché (DIY)"
+                                    ],
+                                    "materiales_texturas": [
+                                        "Arena, Grava, Serrín",
+                                        "Sal, Azúcar, Bicarbonato",
+                                        "Cáscaras de Huevo trituradas"
+                                    ],
+                                    "vegetacion": [
+                                        "Hierba Electrostática (estándar)",
+                                        "Turf, Flocado verde",
+                                        "Musgo seco/pulverizado",
+                                        "Árboles (kits, alambre + espuma)"
+                                    ],
+                                    "agua": [
+                                        "Resina epoxi (aguas profundas)",
+                                        "Pegamento transparente (aguas poco profundas)",
+                                        "Silicona transparente (cascadas)"
+                                    ],
+                                    "edificios": [
+                                        "Cartón, Cartón pluma, Plasticard",
+                                        "Madera de balsa",
+                                        "Materiales reciclados (palillos, latas, tapones)"
+                                    ],
+                                    "herramientas_esenciales": [
+                                        "Cúter, Bisturí",
+                                        "Regla Metálica, Escuadra",
+                                        "Espátulas, Lijas",
+                                        "Pinceles"
+                                    ],
+                                    "herramientas_avanzadas": [
+                                        "Aerógrafo",
+                                        "Cortador de Hilo Caliente",
+                                        "Dremel/Multiherramienta"
+                                    ],
+                                    "seguridad": [
+                                        "Gafas protectoras",
+                                        "Mascarilla antipolvo/pintura",
+                                        "Guantes de nitrilo"
+                                    ],
+                                    "directorio_reciclados": [
+                                        {
+                                            "objeto": "Tapa de Botella",
+                                            "uso": "Bidón, Torre de Agua",
+                                            "escala": "1:35 - 1:72",
+                                            "tratamiento": "Lijar, Pintar"
+                                        },
+                                        {
+                                            "objeto": "Caja de Cerillas",
+                                            "uso": "Casa, Edificio Pequeño",
+                                            "escala": "1:87",
+                                            "tratamiento": "Cortar, Detallar"
+                                        },
+                                        {
+                                            "objeto": "Lata de Refresco",
+                                            "uso": "Silo, Tanque Industrial",
+                                            "escala": "1:35",
+                                            "tratamiento": "Cortar, Lijar, Pintar"
+                                        },
+                                        {
+                                            "objeto": "Clip Metálico",
+                                            "uso": "Escalera, Estructura Metálica",
+                                            "escala": "1:35",
+                                            "tratamiento": "Enderezar, Pintar"
+                                        },
+                                        {
+                                            "objeto": "Esponja de Cocina",
+                                            "uso": "Roca, Vegetación, Nieve",
+                                            "escala": "Todas",
+                                            "tratamiento": "Cortar, Triturar, Pintar"
+                                        },
+                                        {
+                                            "objeto": "Bolsa de Té Seca",
+                                            "uso": "Hojas, Tierra, Textura Orgánica",
+                                            "escala": "Todas",
+                                            "tratamiento": "Secar, Triturar, Fijar"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "numero": "4",
+                                "titulo": "Construcción del Terreno y Miniaturas",
+                                "contenido": {
+                                    "terreno": {
+                                        "tecnicas": [
+                                            "Crear elevaciones con espuma o cartón",
+                                            "Texturizado con vendas de yeso o yeso",
+                                            "Refinamiento con arcilla o masilla",
+                                            "Sellado con PVA diluido"
+                                        ],
+                                        "ficha_visual": {
+                                            "antes": "Base plana de MDF sin estructura.",
+                                            "durante": "Aplicando capas de espuma XPS cortada para crear una colina.",
+                                            "despues": "Terreno con elevaciones, texturizado con yeso y listo para pintar.",
+                                            "error_comun": "Terreno con una sola elevación plana. Solución: Crear múltiples niveles."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "El Camino de Montaña que Desafía la Gravedad",
+                                            "historia": "Este camino serpentea por la ladera de una montaña empinada...",
+                                            "tecnicas": "Espuma para la pendiente + vendas de yeso para muros + grietas con cuchilla.",
+                                            "materiales": "Espuma XPS, Yeso, Masilla, Pigmentos grises.",
+                                            "resultado": "Un terreno que es un personaje activo en la narrativa."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Comparar resistencia de materiales base (Cartón Pluma vs. MDF vs. XPS).",
+                                            "resultado": "MDF es el más estable para terrenos con elementos pesados."
+                                        },
+                                        "diy": {
+                                            "receta": "1 parte cola blanca + 1 parte bicarbonato + 1 parte harina de maíz + agua.",
+                                            "uso": "Aplicar con espátula, crear texturas mientras está húmedo.",
+                                            "consejo_pro": "Mezclar arena fina para efecto de roca."
+                                        }
+                                    },
+                                    "miniaturas": {
+                                        "tecnicas": [
+                                            "Verificar escala",
+                                            "Posado narrativo",
+                                            "Fijación con epoxi o alfileres",
+                                            "Ampliar base para estabilidad (3x altura de la figura)",
+                                            "Añadir peso interno (plomo, masilla metálica)"
+                                        ],
+                                        "ficha_visual": {
+                                            "antes": "Figura con base estándar, inestable en pendiente.",
+                                            "durante": "Ampliando la base y añadiendo peso con masilla metálica.",
+                                            "despues": "Figura estable en terreno inclinado.",
+                                            "error_comun": "Figura que se cae. Solución: Ampliar la base."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "El Centinela que Nunca Duermee",
+                                            "historia": "Este soldado ha estado de guardia en este puesto de avanzada durante días...",
+                                            "tecnicas": "Posar figura + añadir barro en botas + pigmentos grises.",
+                                            "materiales": "Miniatura 1:35, Epoxi, Pasta de modelar, Pigmento AK.",
+                                            "resultado": "Una figura que pertenece al entorno y cuenta una historia."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Comparar métodos de fijación en terreno irregular.",
+                                            "resultado": "Epoxi es el más seguro. Masilla sirve para ajustes temporales."
+                                        },
+                                        "diy": {
+                                            "receta": "Fundir perdigones de plomo o usar arcilla con polvo metálico.",
+                                            "uso": "Introducir peso en la base de la figura.",
+                                            "consejo_pro": "Usar masilla epoxi mezclada con bolitas de perdigón."
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "numero": "5",
+                                "titulo": "Escultura para Dioramas",
+                                "contenido": {
+                                    "materiales": [
+                                        {
+                                            "nombre": "Arcilla Polimérica (Fimo, Sculpey)",
+                                            "caracteristicas": "Se hornea, maleable, gran detalle.",
+                                            "mejor_para": "Figuras, rostros, accesorios pequeños."
+                                        },
+                                        {
+                                            "nombre": "Arcilla Epoxi (Green Stuff, Milliput)",
+                                            "caracteristicas": "Se endurece al mezclar, muy resistente.",
+                                            "mejor_para": "Reparaciones, detalles estructurales."
+                                        },
+                                        {
+                                            "nombre": "Masilla de Modelar (Das)",
+                                            "caracteristicas": "Secado al aire, económica.",
+                                            "mejor_para": "Rocas, terrenos, elementos grandes."
+                                        },
+                                        {
+                                            "nombre": "Espuma de Poliestireno (XPS/EPS)",
+                                            "caracteristicas": "Ligera, fácil de tallar.",
+                                            "mejor_para": "Montañas, edificios, estructuras de fondo."
+                                        }
+                                    ],
+                                    "herramientas": [
+                                        "Espátulas y Modeladores",
+                                        "Cuchillas y Bisturís",
+                                        "Rodillos y Texturizadores",
+                                        "Plantillas y Calibres",
+                                        "Lijas de Agua (400-2000)"
+                                    ],
+                                    "tecnicas": {
+                                        "aditivo": {
+                                            "objetivo": "Construir formas desde cero.",
+                                            "pasos": [
+                                                "Crear armadura con alambre.",
+                                                "Añadir material en capas.",
+                                                "Definir detalles con herramientas."
+                                            ]
+                                        },
+                                        "sustractivo": {
+                                            "objetivo": "Eliminar material para revelar la forma.",
+                                            "pasos": [
+                                                "Empezar con bloque de espuma.",
+                                                "Tallar formas grandes.",
+                                                "Refinar con herramientas finas."
+                                            ]
+                                        },
+                                        "armaduras": {
+                                            "objetivo": "Dar soporte estructural.",
+                                            "materiales": "Alambre de aluminio, espuma, clips.",
+                                            "consejo_pro": "Proporción cabeza = 1/8 de altura total."
+                                        },
+                                        "texturizado": {
+                                            "objetivo": "Dar realismo a superficies.",
+                                            "tecnicas": [
+                                                "Piel: aguja para poros.",
+                                                "Tela: presionar tela real sobre arcilla.",
+                                                "Madera: palillo para vetas.",
+                                                "Metal: lija fina para micro-rayaduras."
+                                            ]
+                                        }
+                                    },
+                                    "protocolo": {
+                                        "objetivo": "Comparar arcilla polimérica vs. arcilla epoxi.",
+                                        "resultado": "Fimo: mejor detalle, más tiempo. Green Stuff: más rápido, ideal para reparaciones."
+                                    },
+                                    "diy": {
+                                        "masilla_casera": "1 taza harina + 1/2 taza sal + 1/2 taza agua. Cocinar hasta formar bola.",
+                                        "arcilla_epoxi_casera": "1 parte cola blanca + 1 parte bicarbonato.",
+                                        "consejo_pro": "Añadir aceite a masilla casera para evitar grietas."
+                                    },
+                                    "consejos_pro": [
+                                        "Trabajar con referencias visuales.",
+                                        "Usar vaselina en dedos para evitar que se pegue la arcilla.",
+                                        "Hacer armadura para figuras altas.",
+                                        "Usar termómetro de horno para arcilla polimérica.",
+                                        "Preparar solo la cantidad de arcilla epoxi que se usará en 30 min."
+                                    ]
+                                }
+                            },
+                            {
+                                "numero": "6",
+                                "titulo": "Técnicas de Moldes y Reproducción",
+                                "contenido": {
+                                    "materiales_moldes": [
+                                        {
+                                            "nombre": "Silicona de Platino (RTV-2)",
+                                            "caracteristicas": "Profesional, no se adhiere, captura detalles finos, duradera.",
+                                            "precio": "Alto"
+                                        },
+                                        {
+                                            "nombre": "Silicona de Estaño (RTV-1)",
+                                            "caracteristicas": "Más barata, menos duradera, menor detalle.",
+                                            "precio": "Medio"
+                                        },
+                                        {
+                                            "nombre": "Látex Líquido",
+                                            "caracteristicas": "Económico, flexible, frágil, mal olor.",
+                                            "precio": "Bajo"
+                                        }
+                                    ],
+                                    "herramientas": [
+                                        "Caja de Moldeo",
+                                        "Desmoldeante (¡imprescindible!)",
+                                        "Varilla de Mezcla y Báscula Digital",
+                                        "Vacío o Vibración (opcional)",
+                                        "Guantes de Nitrilo"
+                                    ],
+                                    "procedimientos": {
+                                        "molde_1_parte": [
+                                            "Preparar original (limpiar, aplicar desmoldeante).",
+                                            "Construir caja, colocar original.",
+                                            "Mezclar silicona, verter lentamente.",
+                                            "Dejar curar (24h), desmoldar."
+                                        ],
+                                        "molde_2_partes": [
+                                            "Enterrar mitad del original en plastilina.",
+                                            "Hacer primera mitad de molde.",
+                                            "Liberar, limpiar, aplicar desmoldeante en primera mitad.",
+                                            "Hacer segunda mitad, curar, desmoldar."
+                                        ]
+                                    },
+                                    "materiales_reproduccion": [
+                                        "Resina Epoxi o Poliéster (piezas duras, se puede teñir).",
+                                        "Yeso o Escayola (económico, ideal para rocas, frágil).",
+                                        "Cemento de Modelismo (ultra-resistente)."
+                                    ],
+                                    "ficha_visual": {
+                                        "antes": "Pieza original (roca, cráter).",
+                                        "durante": "Vertiendo silicona en la caja de moldeo.",
+                                        "despues": "Molde de silicona y pieza replicada en resina.",
+                                        "error_comun": "Molde con burbujas. Solución: Usar cámara de vacío."
+                                    },
+                                    "ficha_narrativa": {
+                                        "titulo": "El Campo de Batalla con Cráteres Idénticos",
+                                        "historia": "Este campo de batalla ha sido bombardeado intensamente...",
+                                        "tecnicas": "Crear molde de silicona + reproducir 10 copias en resina + pintar.",
+                                        "materiales": "Silicona RTV-2, Resina epoxi, Vallejo marrón y negro.",
+                                        "resultado": "Campo de batalla con cráteres coherentes y realistas."
+                                    },
+                                    "protocolo": {
+                                        "objetivo": "Comparar calidad de detalle: silicona platino vs. estaño.",
+                                        "resultado": "Platino: captura todos los detalles. Estaño: pierde detalles finos."
+                                    },
+                                    "diy": {
+                                        "molde_gelatina": "Gelatina sin sabor + agua. Calentar, verter, refrigerar. (Un solo uso, frágil).",
+                                        "molde_pva_glicerina": "2 partes cola blanca + 1 parte glicerina. Aplicar en capas.",
+                                        "consejo_pro": "Refuerza la resina con fibra de vidrio para piezas grandes."
+                                    },
+                                    "consejos_pro": [
+                                        "Usar moldes de silicona para crear tus propios kits.",
+                                        "Refuerza la resina con fibra de vidrio.",
+                                        "Siempre aplica desmoldeante.",
+                                        "Mezcla la silicona lentamente.",
+                                        "Respeta el tiempo de curado."
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "numero": "III",
+                        "titulo": "El Arte de la Superficie",
+                        "capitulos": [
+                            {
+                                "numero": "7",
+                                "titulo": "Fundamentos de la Pintura y el Acabado",
+                                "contenido": {
+                                    "tipos_pintura": [
+                                        {
+                                            "tipo": "Acrílica",
+                                            "diluyente": "Agua",
+                                            "secado": "Rápido",
+                                            "toxicidad": "Baja",
+                                            "usos": "General, principiantes, veladuras."
+                                        },
+                                        {
+                                            "tipo": "Esmalte",
+                                            "diluyente": "Aguarrás",
+                                            "secado": "Lento",
+                                            "toxicidad": "Media",
+                                            "usos": "Acabados duraderos, metálicos, lavados."
+                                        },
+                                        {
+                                            "tipo": "Laca",
+                                            "diluyente": "Solvente",
+                                            "secado": "Muy Rápido",
+                                            "toxicidad": "Alta",
+                                            "usos": "Acabados lisos y brillantes, aerografía."
+                                        },
+                                        {
+                                            "tipo": "Óleo",
+                                            "diluyente": "Aguarrás",
+                                            "secado": "Muy Lento",
+                                            "toxicidad": "Media",
+                                            "usos": "Envejecimiento, difuminados, tonos de piel."
+                                        }
+                                    ],
+                                    "imprimacion": {
+                                        "tipos": [
+                                            "Acrílica (versátil, rápida)",
+                                            "Esmaltada (alta adherencia, lenta)",
+                                            "Lacada (muy lisa, ultrarrápida, tóxica)"
+                                        ],
+                                        "colores": {
+                                            "negro": "Para esquemas oscuros, acentúa sombras.",
+                                            "blanco": "Para colores claros, luminosos.",
+                                            "gris": "Base neutra, recomendado para principiantes."
+                                        },
+                                        "metodos_aplicacion": [
+                                            "Aerógrafo (mejor acabado)",
+                                            "Spray (rápido, menos preciso)",
+                                            "Pincel (solo retoques)"
+                                        ],
+                                        "ficha_visual": {
+                                            "antes": "Pieza de plástico sin imprimar.",
+                                            "durante": "Aplicando imprimación gris con aerógrafo.",
+                                            "despues": "Superficie uniforme, detalles resaltados.",
+                                            "error_comun": "Capa gruesa que oculta detalles. Solución: Capas finas."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "El Tanque que Nunca Fue Pintado",
+                                            "historia": "Este tanque fue abandonado en el taller antes de recibir su capa de pintura final...",
+                                            "tecnicas": "Imprimación gris + veladuras marrones + pigmentos negros.",
+                                            "paleta": "Vallejo Surface Primer Grey + Vallejo Saddle Brown + Pigmento AK.",
+                                            "resultado": "Vehículo que parece olvidado en un hangar."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Comparar adherencia: imprimación acrílica vs. esmaltada en plástico.",
+                                            "resultado": "Esmaltada ofrece mejor adherencia."
+                                        },
+                                        "diy": {
+                                            "imprimacion_basica": "1 parte cola blanca + 1 parte agua + 1 parte pintura acrílica.",
+                                            "imprimacion_metal": "Añadir bicarbonato a la mezcla básica.",
+                                            "zenithal_diy": "Imprimación negra en zonas bajas + rociar pintura blanca diluida desde arriba."
+                                        }
+                                    },
+                                    "barnizado": {
+                                        "tipos": [
+                                            "Brillante (Gloss): para superficies húmedas, charcos.",
+                                            "Satinado (Satin): brillo suave, versátil.",
+                                            "Mate (Matte): sin brillo, maquetas militares, desgaste."
+                                        ],
+                                        "consejo": "Aplicar en capas finas y uniformes, preferiblemente con aerógrafo.",
+                                        "ficha_visual": {
+                                            "antes": "Diorama terminado, colores vibrantes.",
+                                            "durante": "Aplicando barniz mate con aerógrafo.",
+                                            "despues": "Acabado uniforme, colores ligeramente apagados.",
+                                            "error_comun": "Barniz con gotas. Solución: Diluir más, capas finas."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "La Calle Mojada después de la Lluvia",
+                                            "historia": "Esta calle de ciudad acaba de ser azotada por una tormenta...",
+                                            "tecnicas": "Barniz brillante en charcos + barniz mate en aceras + pigmentos grises.",
+                                            "materiales": "Barniz Vallejo Gloss/Matte + Pigmento AK.",
+                                            "resultado": "Escena urbana húmeda y realista."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Probar durabilidad: barniz casero vs. comercial.",
+                                            "resultado": "Comercial es más resistente. Casero sirve para proyectos no manipulados."
+                                        },
+                                        "diy": {
+                                            "barniz_mate": "1 parte cola blanca + 2 partes agua destilada.",
+                                            "barniz_satinado": "1 parte barniz mate casero + 1 parte barniz brillante.",
+                                            "barniz_brillante": "Barniz transparente para uñas o resina epoxi diluida."
+                                        }
+                                    },
+                                    "pincel": {
+                                        "tipos": [
+                                            "Redondos: detalles finos, delineado.",
+                                            "Planos: cubrir áreas grandes, bordes definidos.",
+                                            "Lengua de Gato (Filbert): versátiles, difuminados.",
+                                            "Pincel Seco: cerdas duras, técnica de pincel seco."
+                                        ],
+                                        "consejo_pro": "Invertir en 3 pinceles de calidad: redondo #1, plano 5mm, pincel seco.",
+                                        "cuidado": [
+                                            "Limpiar inmediatamente después de usar.",
+                                            "Usar limpiador adecuado (agua, aguarrás).",
+                                            "Almacenar con cerdas hacia arriba.",
+                                            "DIY: Restaurar con vinagre caliente."
+                                        ],
+                                        "ficha_visual": {
+                                            "antes": "Pincel nuevo.",
+                                            "durante": "Limpiando pincel con agua y jabón.",
+                                            "despues": "Pincel seco, almacenado correctamente.",
+                                            "error_comun": "Cerdas abiertas. Solución: Vinagre caliente."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "El Pincel del Maestro Envejecido",
+                                            "historia": "Este pincel ha sido usado durante años para pintar cientos de dioramas...",
+                                            "tecnicas": "Pintar mango + veladuras marrones + pigmentos negros.",
+                                            "paleta": "Vallejo Wood Brown + Vallejo Saddle Brown + Pigmento AK.",
+                                            "resultado": "Pincel que parece una herramienta de trabajo real."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Probar durabilidad: pinceles sintéticos vs. naturales.",
+                                            "resultado": "Naturales duran más. Sintéticos más económicos."
+                                        },
+                                        "diy": {
+                                            "pincel_detalle": "Cortar cerdas de pincel viejo a 2mm, lijar punta a 45º.",
+                                            "consejo_pro": "Usar cerdas de brocha de dientes eléctrica para pincel seco."
+                                        }
+                                    },
+                                    "aerografo": {
+                                        "por_que_usar": [
+                                            "Capas suaves y uniformes.",
+                                            "Ideal para grandes áreas, degradados.",
+                                            "Máxima precisión."
+                                        ],
+                                        "tipos": [
+                                            "Doble Acción (recomendado): control independiente aire/pintura.",
+                                            "Simple Acción: más fácil, menos control."
+                                        ],
+                                        "equipo_esencial": [
+                                            "Aerógrafo (doble acción, gravedad).",
+                                            "Compresor con regulador y trampa de humedad.",
+                                            "Cabina de pintura con ventilación.",
+                                            "Limpiadores y diluyentes."
+                                        ],
+                                        "consejo_pro": "Dilución correcta, capas finas. Técnica: aire encendido -> pintura encendida -> pintura apagada -> aire apagado.",
+                                        "ficha_visual": {
+                                            "antes": "Pieza con imprimación gris.",
+                                            "durante": "Aplicando capa base con aerógrafo.",
+                                            "despues": "Capa base uniforme, lista para detalles.",
+                                            "error_comun": "Pintura con gotas. Solución: Diluir más, probar en papel."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "El Avión que Sobrevivió al Desierto",
+                                            "historia": "Este avión estuvo abandonado en el desierto durante años...",
+                                            "tecnicas": "Capa base con aerógrafo + veladuras anaranjadas + pigmentos rojos.",
+                                            "paleta": "Vallejo Green Ochre + Vallejo Orange Brown + Pigmento AK.",
+                                            "resultado": "Avión con desgaste ambiental realista."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Encontrar dilución óptima para Vallejo Model Color.",
+                                            "resultado": "Dilución 3:1 (pintura:agua) es óptima."
+                                        },
+                                        "diy": {
+                                            "diluyente_basico": "70% agua destilada + 30% alcohol isopropílico.",
+                                            "flow_improver": "60% agua + 30% alcohol + 10% glicerina.",
+                                            "retardador": "90% agua + 10% glicerina."
+                                        }
+                                    },
+                                    "diluyentes_solventes": {
+                                        "guia": {
+                                            "acrilicas": "Agua destilada o diluyentes específicos.",
+                                            "esmaltes": "Aguarrás o esencia de trementina.",
+                                            "lacas": "Diluyentes de laca específicos (¡potentes!).",
+                                            "oleos": "Aguarrás o diluyentes inodoros."
+                                        },
+                                        "seguridad": "¡Siempre en área ventilada, con mascarilla y guantes nitrilo!",
+                                        "ficha_visual": {
+                                            "antes": "Frascos de pintura sin diluir.",
+                                            "durante": "Mezclando pintura con diluyente DIY.",
+                                            "despues": "Pintura con consistencia de leche.",
+                                            "error_comun": "Aerógrafo obstruido. Solución: Filtrar pintura con gasa."
+                                        },
+                                        "ficha_narrativa": {
+                                            "titulo": "El Taller del Pintor",
+                                            "historia": "Este rincón de taller tiene frascos de diluyentes medio usados...",
+                                            "tecnicas": "Pintar frascos + etiquetas con pincel seco + manchas de pintura.",
+                                            "paleta": "Vallejo Black + Vallejo Azure + Vallejo Green Ochre.",
+                                            "resultado": "Frascos que parecen usados."
+                                        },
+                                        "protocolo": {
+                                            "objetivo": "Comparar tiempo de secado: diluyente comercial vs. DIY.",
+                                            "resultado": "DIY seca más rápido (3 min vs 5 min)."
+                                        },
+                                        "diy": {
+                                            "limpiador_aerografo": "50% agua destilada + 50% alcohol isopropílico + vinagre blanco."
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "numero": "8",
+                                "titulo": "Técnicas Avanzadas de Textura y Envejecimiento",
+                                "contenido": {
+                                    "efectos_ambientales": {
+                                        "polvo_y_arena": {
+                                            "materiales": "Tiza pastel, café molido, talco, pigmentos.",
+                                            "tecnica": "Aplicar con pincel seco o esponja en zonas bajas. Fijar con spray mate.",
+                                            "narrativa": "El polvo del camino se acumula en las ruedas y bajos del vehículo...",
+                                            "diy": "Posos de café secos + cola blanca diluida al 50%."
+                                        },
+                                        "nieve_y_escarcha": {
+                                            "materiales": "Bicarbonato, sal fina, cola blanca, pintura blanca.",
+                                            "tecnica": "Mezclar y aplicar con pincel. Para escarcha, espolvorear bicarbonato sobre cola húmeda.",
+                                            "narrativa": "La escarcha matutina cubre las ramas y techos...",
+                                            "visual": "Foto de tejado con nieve espesa en sombra y escarcha fina en cresta iluminada."
+                                        },
+                                        "moho_y_humedad": {
+                                            "materiales": "Veladuras verde/negro, pigmentos, esponja.",
+                                            "tecnica": "Aplicar veladuras en zonas húmedas. Esponjado para manchas irregulares.",
+                                            "narrativa": "Las paredes del sótano rezuman humedad, con manchas de moho verde...",
+                                            "experimental": "Probar diferentes verdes (Sick Green, Olive Green) para moho realista."
+                                        }
+                                    },
+                                    "desgaste_materiales": {
+                                        "oxido": {
+                                            "materiales": "Pinturas marrón, rojo, naranja, negro; esponjas, sal gruesa.",
+                                            "tecnica_esponjado": "Cargar esponja con pintura, aplicar toques suaves.",
+                                            "tecnica_sal": "Aplicar PVA, espolvorear sal, pintar, cepillar sal al secar.",
+                                            "narrativa": "Este tanque ha estado abandonado en un pantano. El agua ha creado placas de óxido...",
+                                            "diy": "Pigmento verde + vinagre blanco + agua para pátina verde."
+                                        },
+                                        "madera_chipping": {
+                                            "materiales": "Pintura base, pintura superior, film adhesivo, pinzas.",
+                                            "tecnica_film": "Pintar base, aplicar film en zonas de desgaste, pintar encima, retirar film.",
+                                            "narrativa": "La puerta del granero ha sido abierta y cerrada miles de veces. La pintura azul está desconchada...",
+                                            "consejo_pro": "Usar esponja humedecida en disolvente para chipping más orgánico."
+                                        },
+                                        "craquelado": {
+                                            "materiales": "Medium craquelador, pintura base (oscuro), pintura superior (claro).",
+                                            "pasos": [
+                                                "Aplicar base, secar.",
+                                                "Aplicar medium craquelador en capa fina.",
+                                                "Cuando esté tacto seco, aplicar pintura superior.",
+                                                "Dejar secar: se agrietará.",
+                                                "Resaltar grietas con lavado marrón/negro."
+                                            ],
+                                            "narrativa": "El muro del castillo tiene siglos. La pintura protectora se ha agrietado...",
+                                            "diy": "1 parte cola blanca + 1 parte agua + 1 cucharadita bicarbonato por 50ml."
+                                        }
+                                    },
+                                    "fluidos_suelos": {
+                                        "agua_charcos": {
+                                            "materiales": "Resina epoxi, pegamento brillante, barniz vitral.",
+                                            "tecnica": "Resina en capas finas para charcos. Pegamento brillante diluido para agua poco profunda.",
+                                            "narrativa": "Después de la tormenta, el patio está lleno de charcos sucios...",
+                                            "visual": "Foto de charco con resina, hojas y suciedad incrustadas."
+                                        },
+                                        "barro_tierra": {
+                                            "materiales": "Pasta de modelar + arena fina, pigmentos marrones, cola PVA.",
+                                            "tecnica": "Mezclar pasta y arena, aplicar con espátula, crear textura con palillo. Pintar con veladuras.",
+                                            "narrativa": "El camino de tierra se ha convertido en un lodazal después de la lluvia..."
+                                        }
+                                    },
+                                    "tecnicas_universales": {
+                                        "veladuras_multiples": {
+                                            "objetivo": "Crear capas complejas de suciedad y ambiente.",
+                                            "pasos": "Aplicar veladuras translúcidas de diferentes colores una sobre otra, secar entre capas.",
+                                            "narrativa": "La calle industrial tiene décadas de historia: capas de polvo rojizo, manchas de aceite negro..."
+                                        },
+                                        "pincel_seco_esponjado": {
+                                            "pincel_seco": "Resaltar relieves (madera, piedra, metal).",
+                                            "esponjado": "Texturas irregulares (moho, tierra, óxido).",
+                                            "consejo_pro": "Usar pincel seco invertido (casi seco, pintura diluida) para desgaste sutil."
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "numero": "9",
+                                "titulo": "Teoría del Color y Composición Visual",
+                                "contenido": {
+                                    "teoria_color": {
+                                        "temperatura": {
+                                            "calidos": "Rojo, naranja, amarillo. Avanzan visualmente.",
+                                            "frios": "Azul, verde, violeta. Retroceden visualmente."
+                                        },
+                                        "valor_saturacion": {
+                                            "valor_alto": "Claro (beige, gris perla). Da sensación de luz.",
+                                            "valor_bajo": "Oscuro (marrón oscuro, gris plomo). Da sensación de sombra.",
+                                            "alta_saturacion": "Colores vibrantes (objetos nuevos).",
+                                            "baja_saturacion": "Colores apagados (objetos viejos, lejanos)."
+                                        },
+                                        "mezclas_economicas": "Con 5 colores: Azul ultramar, Amarillo medio, Rojo cadmio, Blanco titanio, Negro marfil."
+                                    },
+                                    "composicion_visual": {
+                                        "principios": [
+                                            "Equilibrio Visual (Regla de los Tercios).",
+                                            "Punto Focal (elemento central que atrae la mirada).",
+                                            "Flujo y Guía Visual (líneas que guían la mirada).",
+                                            "Profundidad (superposición, perspectiva atmosférica, perspectiva forzada).",
+                                            "Narrativa (historia que cuentan las figuras y detalles)."
+                                        ],
+                                        "colocacion_elementos": [
+                                            "Trabajar de fondo a primer plano.",
+                                            "Variar tamaño y altura.",
+                                            "Agregar 'desorden controlado'.",
+                                            "Evitar tangentes.",
+                                            "Toques finales: huellas, escombros, calcomanías."
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "numero": "IV",
+                        "titulo": "Elementos Dinámicos y Ambientación",
+                        "capitulos": [
+                            {
+                                "numero": "10",
+                                "titulo": "Iluminación LED",
+                                "contenido": {
+                                    "fundamentos": {
+                                        "definicion": "Diodo Emisor de Luz. Emite luz con corriente eléctrica.",
+                                        "ventajas": [
+                                            "Baja generación de calor.",
+                                            "Alta eficiencia energética.",
+                                            "Larga vida útil.",
+                                            "Tamaño diminuto, versatilidad.",
+                                            "Colores puros, efectos especiales."
+                                        ]
+                                    },
+                                    "tipos_leds": [
+                                        "LEDs SMD (muy pequeños, ideales para luces puntuales ocultas).",
+                                        "LEDs de 5 mm (clásicos, fáciles de manejar).",
+                                        "Tiras LED flexibles (para iluminar áreas amplias).",
+                                        "LEDs precableados (para principiantes).",
+                                        "LEDs de efecto especial (parpadeo, destello, llama)."
+                                    ],
+                                    "colores_aplicaciones": {
+                                        "historicas_medievales": {
+                                            "color": "Luz cálida (amarillo/ámbar).",
+                                            "aplicaciones": "Chimenea (LED rojo + naranja), Antorchas (LED cálido)."
+                                        },
+                                        "urbanas_nocturnas": {
+                                            "color": "Blancos fríos, azules, neones.",
+                                            "aplicaciones": "Farolas (LED blanco cálido), Semáforos (LED rojo/ámbar/verde)."
+                                        },
+                                        "ciencia_ficcion": {
+                                            "color": "Blanco, azul, verdes/rojos intensos, RGB.",
+                                            "aplicaciones": "Espadas mágicas (LED azul), Nave espacial (LEDs rojos parpadeantes + blancos)."
+                                        },
+                                        "naturales_fantasia": {
+                                            "color": "Depende del elemento.",
+                                            "aplicaciones": "Fogata (LED rojo + naranja), Relámpagos (LED blanco intenso), Luciérnagas (LED SMD amarillo)."
+                                        },
+                                        "ferroviarios": {
+                                            "color": "Según necesidad.",
+                                            "aplicaciones": "Luces de locomotora (blanco frío delante + rojos detrás), Estación nocturna (LEDs cálidos bajo marquesinas)."
+                                        }
+                                    },
+                                    "resistencias": {
+                                        "fundamentos": "Nunca conectar LED directamente sin resistencia.",
+                                        "ley_ohm": "R = (V_fuente – V_LED) / I_LED",
+                                        "ejemplos": [
+                                            "Fuente 12V, LED rojo (1.8V): R = 510 Ω.",
+                                            "Fuente 9V, LED rojo: R = 360 Ω.",
+                                            "Fuente 5V, LED rojo: R = 160 Ω."
+                                        ],
+                                        "consejos": "Redondear hacia arriba, una resistencia por LED, usar 1/4 W o 1/2 W."
+                                    },
+                                    "alimentacion": [
+                                        "Pilas y baterías (portátiles, fácil de esconder).",
+                                        "USB / Power Banks (5V regulados).",
+                                        "Adaptadores AC/DC (estables para exhibiciones largas)."
+                                    ],
+                                    "cableado_ocultacion": {
+                                        "paralelo": "Conectar ánodos a cable positivo común, cátodos a negativo común.",
+                                        "ocultar": [
+                                            "Perforar orificios en la base.",
+                                            "Crear surcos para cables, cubrir con masilla.",
+                                            "Pintar cables con tonos oscuros.",
+                                            "Pintar interior del modelo de negro."
+                                        ]
+                                    },
+                                    "montaje": {
+                                        "pegamentos": [
+                                            "Evitar: Silicona caliente, epoxi de dos partes.",
+                                            "Recomendados: Cera de montaje, Pegamento 'tacky' o gel cristal, Cianoacrilato (con cuidado)."
+                                        ],
+                                        "fijacion_mecanica": "Usar soportes o zócalos plásticos.",
+                                        "interruptor": "Incorporar interruptor pequeño, ocultarlo en la base."
+                                    },
+                                    "errores_comunes": [
+                                        "Olvidar resistencia: quema LED. Solución: Siempre usar resistencia.",
+                                        "Polaridad invertida: LED no enciende. Solución: Verificar cables y orientación (pata larga = ánodo).",
+                                        "No probar antes de cerrar. Solución: Probar cada rama antes de fijar.",
+                                        "Conexiones débiles. Solución: Usar estaño, aislar bien.",
+                                        "Desbordar corrientes. Solución: Usar LED 'super bright' o varios en paralelo.",
+                                        "Filtros de luz no planeados. Solución: Probar, tapar rendijas con masilla negra."
+                                    ],
+                                    "recetas_diy": [
+                                        "Ventana de edificio: LED SMD cálido + difusor papel seda.",
+                                        "Lámpara de techo: LED por brazo, cableado paralelo.",
+                                        "Letrero de neón: Tira LED flexible sobre alambre pintado.",
+                                        "Foco de búsqueda: LED transparente dentro de tubo negro.",
+                                        "Panel de control: LED SMD + difusor papel calco.",
+                                        "Luz de emergencia: LED estroboscópico.",
+                                        "Luz subacuática: LED en resina epoxi teñida.",
+                                        "Escaparate de tienda: LEDs SMD blancos fríos + fondo espejo.",
+                                        "Faro de coche: LED transparente + tubo pintado como lente.",
+                                        "Hoguera: LEDs rojo/naranja parpadeantes + papel seda como llamas.",
+                                        "Luz de luna: LED blanco frío + caja difusora papel seda.",
+                                        "Pantalla de TV: Proyectar imagen impresa con luz LED de fondo.",
+                                        "Estrella fugaz: LED blanco super brillante + pulsador momentáneo.",
+                                        "Escaparate heladería: LEDs blancos/azules bajo 'bolas de helado' de esponja.",
+                                        "Luz de escenario: LED blanco super brillante + tubo con interior reflectante.",
+                                        "Ventana iluminada (día exterior): LED fuera, apuntando hacia dentro, con difusor."
+                                    ],
+                                    "fibra_optica": {
+                                        "definicion": "Fibra Óptica de Plástico (POF) que conduce luz.",
+                                        "tipos": "End-Glow (luz en extremo), Side-Glow (luz a lo largo).",
+                                        "diametro": "0.25mm - 1.0mm.",
+                                        "ventajas": "Invisibilidad de fuente, puntos mínimos, flexibilidad, sin calor, efectos dinámicos.",
+                                        "ejemplos": [
+                                            "Cielo estrellado: Cientos de fibras a un solo LED.",
+                                            "Panel de control: Iluminar botones sin ver LEDs.",
+                                            "Luciérnagas: Fibras con LEDs amarillos parpadeantes.",
+                                            "Faros de coches: Centralizar iluminación de ciudad.",
+                                            "Luz de sol por ventana: Simular rayos con fibras que sobresalen.",
+                                            "Lava volcánica: Fibras en resina para puntos de luz.",
+                                            "Farolas de calle: Iluminar decenas desde colector central.",
+                                            "Lámpara de techo: Iluminar 'bombillas' sin cables por brazos."
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "numero": "11",
+                                "titulo": "El Arte de la Hierba Electrostática",
+                                "contenido": {
+                                    "principios": "Basado en electrostática: cargas opuestas se atraen. Aplicador carga fibras, pinza a tierra en base crea carga opuesta.",
+                                    "tutorial": {
+                                        "materiales": [
+                                            "Hierba electrostática (varias longitudes/colores).",
+                                            "Pegamento PVA (blanco, de carpintero).",
+                                            "Aplicador electrostático.",
+                                            "Recipiente, pinza de cocodrilo, base preparada."
+                                        ],
+                                        "preparacion": "Base limpia, seca, pintada.",
+                                        "aplicacion_pegamento": "Capa generosa y uniforme. Aplicar en patrones irregulares para realismo.",
+                                        "uso_aplicador": "Conectar pinza a base. Llenar aplicador. Mantener a cm, agitar suavemente.",
+                                        "despues": "Apagar, desconectar. Soplar exceso. Secar 4-6 horas."
+                                    },
+                                    "consejos_trucos": [
+                                        "Capas y mezclas: base corta, luego mechones largos. Mezclar tonos.",
+                                        "Variación de densidad: áreas densas y escasas.",
+                                        "Trabajar por secciones en dioramas grandes.",
+                                        "Hierba pisoteada: presionar fibras con pincel mientras pegamento húmedo."
+                                    ],
+                                    "metodos_alternativos": [
+                                        "Sin aplicador: espolvorear, fibras quedan planas.",
+                                        "Hierba casera DIY: pelo de peluca sintético, yute, papel triturado.",
+                                        "Combinar con arbustos, flores, rocas, senderos."
+                                    ],
+                                    "aplicador_diy": {
+                                        "materiales": "Matamoscas eléctrico, recipiente plástico, malla metálica, pinza, cable, soldador, pegamento termofusible.",
+                                        "precauciones": [
+                                            "Siempre descargue circuito antes y después.",
+                                            "Aísle completamente conexiones eléctricas.",
+                                            "Nunca toque malla dispensadora encendida.",
+                                            "Para adultos o bajo supervisión."
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "numero": "V",
+                        "titulo": "Estilo, Resolución y Perfeccionamiento",
+                        "capitulos": [
+                            {
+                                "numero": "12",
+                                "titulo": "Solución de Problemas Integral",
+                                "contenido": {
+                                    "estructura_base": [
+                                        "Base inestable: Reforzar con listones, cambiar a MDF.",
+                                        "Deformación: Secar, reforzar con estructura interna.",
+                                        "Grietas: Reparar con masilla, reforzar con fibra de vidrio.",
+                                        "Elementos se caen: Limpiar, usar adhesivo estructural, añadir fijaciones mecánicas.",
+                                        "Juntas visibles: Usar masilla, lijar a ras.",
+                                        "Hundimientos: Rellenar con espuma, añadir soportes."
+                                    ],
+                                    "pintura_acabados": [
+                                        "Pintura cuartea: Lijar, imprimación, repintar capas finas.",
+                                        "Colores desiguales: Lijar, repintar.",
+                                        "Pintura no seca: Mejorar ventilación, calor suave.",
+                                        "Marcas de pincel: Lijar, usar pincel pelo natural.",
+                                        "Diferencias brillo: Aplicar capa selladora.",
+                                        "Pintura ampolla: Eliminar, secar, lijar, repintar.",
+                                        "Sangrado colores: Aplicar sellador bloqueador."
+                                    ],
+                                    "materiales_texturas": [
+                                        "Texturas poco realistas: Mezclar materiales, variar tamaños.",
+                                        "Césped falso: Pintar múltiples tonos, cortar alturas variables.",
+                                        "Materiales se deshacen: Aplicar fijador acrílico.",
+                                        "Arena/gravilla se dispersa: Aplicar cola blanca diluida con spray.",
+                                        "Espuma se deforma: Sustituir, reforzar con núcleo rígido.",
+                                        "Musgos se deterioran: Sustituir por preservados.",
+                                        "Agua poco convincente: Usar resina, crear ondas.",
+                                        "Metales se oxidan: Eliminar óxido, imprimación antioxidante."
+                                    ],
+                                    "escala_proporcion": [
+                                        "Elementos fuera escala: Recalcular, reemplazar.",
+                                        "Perspectiva forzada incorrecta: Reposicionar, ajustar tamaños.",
+                                        "Figuras desproporcionadas: Modificar, bases compensatorias.",
+                                        "Edificios sin proporciones: Consultar planos reales.",
+                                        "Vegetación fuera escala: Investigar tamaños reales."
+                                    ],
+                                    "iluminacion": [
+                                        "Iluminación desigual: Unificar dirección, usar reflectores.",
+                                        "Cables visibles: Canales ocultos, cables planos pintados.",
+                                        "LEDs como puntos: Añadir material difusor.",
+                                        "Calor excesivo: Cambiar a LED, mejorar ventilación.",
+                                        "Color luz inadecuado: Usar filtros, cambiar LED.",
+                                        "Reflejos no deseados: Matizar superficies, cambiar ángulo."
+                                    ],
+                                    "conservacion_mantenimiento": [
+                                        "Polvo: Limpiar con pincel, usar vitrina.",
+                                        "Decoloración UV: Reubicar, barniz UV.",
+                                        "Daños humedad: Deshumidificador.",
+                                        "Insectos: Insecticida, sellar materiales.",
+                                        "Desgaste manipulación: Reforzar con resina.",
+                                        "Cambios temperatura: Ambiente estable."
+                                    ],
+                                    "transporte_almacenamiento": [
+                                        "Roturas: Reparar, embalaje con espuma de corte.",
+                                        "Desplazamiento elementos: Reposicionar, mejorar fijación.",
+                                        "Deformación: Restaurar con calor, almacenar horizontal.",
+                                        "Deterioro prolongado: Iniciar restauración, revisiones periódicas."
+                                    ],
+                                    "tiempo_planificacion": [
+                                        "No cumplir plazos: Priorizar, aumentar horas, cronograma +30% margen.",
+                                        "Agotar materiales: Buscar equivalentes, calcular +25% extra.",
+                                        "Cambios diseño: Evaluar impacto, 'congelar' diseño.",
+                                        "Fatiga: Planificar descansos, objetivos intermedios."
+                                    ],
+                                    "tecnicos_especificos": [
+                                        "Burbujas resina/barniz: Eliminar con pistola calor, mezclar lentamente.",
+                                        "Uniones visibles: Masilla, lijar progresivamente.",
+                                        "Figuras no mantienen posición: Ampliar base, peso interno, base mínima = 3x altura.",
+                                        "Adhesivos no curan: Calor suave, reaplicar, verificar condiciones.",
+                                        "Sonidos no deseados: Material amortiguante, diseñar con flexibilidad.",
+                                        "Problemas motores: Revisar mecánica, lubricar, mantenimiento preventivo."
+                                    ],
+                                    "esteticos_composicion": [
+                                        "Composición desequilibrada: Reposicionar, Regla de los Tercios.",
+                                        "Colores no armonizan: Glaseados unificadores, definir paleta.",
+                                        "Falta profundidad: Planos físicos, graduar tonos, perspectiva aérea.",
+                                        "Exceso detalles: Simplificar zonas secundarias, 'menos es más'.",
+                                        "Estilo incoherente: Unificar tratamiento, definir estilo único."
+                                    ],
+                                    "seguridad": [
+                                        "Elementos cortantes: Cubrir con protectores.",
+                                        "Inestabilidad: Ampliar base, fijar a superficie.",
+                                        "Materiales tóxicos: Sellar, mejorar ventilación, verificar fichas seguridad.",
+                                        "Riesgo eléctrico: Revisar con multímetro, aislar, voltajes seguros (<24V)."
+                                    ],
+                                    "presupuesto_recursos": [
+                                        "Sobrecosto: Alternativas económicas, presupuesto +20% margen.",
+                                        "Herramientas inadecuadas: Alquilar, adaptar técnicas, lista herramientas.",
+                                        "Desperdicio: Planificar uso restos, planos corte optimizados."
+                                    ],
+                                    "ambientales_ecologicos": [
+                                        "Materiales no sostenibles: Sustituir por eco-materiales, proveedores sostenibles.",
+                                        "Residuos: Separar reciclaje, materiales reutilizables.",
+                                        "Emisiones tóxicas: Mejorar ventilación, productos base agua."
+                                    ],
+                                    "documentacion_registro": [
+                                        "Pérdida información: Reconstruir, consultar referencias, fotografiar cada etapa.",
+                                        "Dificultad reproducir: Experimentar sistemáticamente, documentar procedimientos.",
+                                        "Falta respaldo: Fotos alta resolución, 'Ficha de salud' diorama."
+                                    ],
+                                    "sociales_comunicacion": [
+                                        "Malentendidos: Reunión aclaratoria, documentar acuerdos, brief detallado.",
+                                        "Críticas negativas: Analizar constructivamente, presentar bocetos a varias personas.",
+                                        "Falta reconocimiento: Portafolio detallado, documentar tiempo invertido."
+                                    ],
+                                    "herramientas": [
+                                        "Herramientas corte desafiladas: Afilar, sustituir hojas, mantenimiento regular.",
+                                        "Herramientas eléctricas fallan: Reparar, alquilar, mantenimiento preventivo.",
+                                        "Mediciones imprecisas: Calibrar, verificar con 2 instrumentos, instrumentos precisión."
+                                    ],
+                                    "acabado_final": [
+                                        "No coincide boceto: Evaluar, ajustar boceto, bocetos realistas.",
+                                        "Calidad desigual: Homogeneizar, acabado uniforme, checklist calidad.",
+                                        "Detalles no se aprecian: Iluminación, aumentar contraste, evaluar visibilidad."
+                                    ]
+                                }
+                            },
+                            {
+                                "numero": "13",
+                                "titulo": "Estilos Temáticos y Filosofía del Reciclaje",
+                                "contenido": {
+                                    "estilos": {
+                                        "historico": "Piedra, madera, óxidos. Enfoque en precisión.",
+                                        "fantasia": "Vegetación mágica, colores intensos, elementos irreales.",
+                                        "futurista": "Metales oxidados, paneles electrónicos, LEDs, estructuras geométricas.",
+                                        "urbano": "Ladrillo, asfalto, grafitis (etiquetas/pegatinas recicladas), basura.",
+                                        "naturaleza": "Vegetación, texturas naturales, agua, rocas.",
+                                        "interior": "Mobiliario casero, cortinas (retazos tela), mini lámparas, objetos cotidianos."
+                                    },
+                                    "reciclaje": {
+                                        "frase": "\"Si eres capaz de ver una central eléctrica en una botella de champú... estás en el nivel maestro del reciclaje dioramista.\"",
+                                        "consejos": [
+                                            "Observa Formas Básicas: Cilindro, Cubo, Esfera.",
+                                            "Piensa en Escalas: Tapón de botella = bidón, torre de agua, cúpula.",
+                                            "Experimenta con Texturas: Lijar, pintar, deformar, combinar.",
+                                            "Combina Materiales: Reciclados, caseros, comerciales para realismo."
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "numero": "VI",
+                        "titulo": "Del Taller a la Galería — Exhibición y Legado",
+                        "capitulos": [
+                            {
+                                "numero": "14",
+                                "titulo": "Organización, Exhibición y Legado",
+                                "contenido": {
+                                    "organizacion_taller": [
+                                        "Cajas modulares etiquetadas.",
+                                        "Tarros reciclados para pigmentos, arena.",
+                                        "Bandejas para proyectos en curso.",
+                                        "Sistema de etiquetado claro."
+                                    ],
+                                    "kit_emergencia": [
+                                        "Cola blanca, Pintura acrílica básica.",
+                                        "Cutter afilado, Mini pinceles.",
+                                        "Trozos de corcho y cartón, Miniaturas genéricas.",
+                                        "Pigmentos, Flocado básico, Cinta de carrocero."
+                                    ],
+                                    "recursos_aprender": {
+                                        "revistas": [
+                                            "The Weathering Magazine",
+                                            "Military Modelling"
+                                        ],
+                                        "comunidades_online": [
+                                            "Reddit (r/dioramas, r/modelmakers, r/TerrainBuilding)",
+                                            "FineScale Modeler Forum"
+                                        ],
+                                        "blogs_youtube": {
+                                            "generales": [
+                                                "Terrains4Games",
+                                                "DioramaWorkshop",
+                                                "Luke Towan"
+                                            ],
+                                            "hierba": [
+                                                "Belenes Alfonso&Mery",
+                                                "Picoypincel"
+                                            ],
+                                            "pintura": [
+                                                "Massive Voodoo",
+                                                "Squidmar",
+                                                "Miniac"
+                                            ],
+                                            "iluminacion_led": "Buscar tutoriales 'diorama LED lighting' o 'miniature LED'."
+                                        }
+                                    },
+                                    "exhibicion_fotografia": {
+                                        "exhibicion": "Vitrinas de vidrio o acrílico. Base estable.",
+                                        "fotografia": {
+                                            "camara_lente": "Modo macro, lente 50mm o 100mm.",
+                                            "iluminacion": "Luz natural difusa (ventana nublada) o LED 5500K con difusores.",
+                                            "fondo": "Neutro (negro, blanco, gris) o degradado.",
+                                            "angulos": "Altura ojos figuras (inmersivo), cenital (composición).",
+                                            "tripode": "Imprescindible para fotos nítidas.",
+                                            "edicion": "Ajustar exposición, contraste, saturación, recortar. ¡No exageres!"
+                                        }
+                                    },
+                                    "compartir_comunidad": [
+                                        "Concursos: Feedback y reconocimiento.",
+                                        "Redes Sociales: Perfil dedicado, hashtags (#diorama, #modelmaking).",
+                                        "Enseñanza: Talleres, tutoriales, videos.",
+                                        "Colaboración: Clubes de modelismo, proyectos conjuntos."
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "numero": "VII",
+                        "titulo": "La Maestría — El Viaje del Artista",
+                        "capitulos": [
+                            {
+                                "numero": "15",
+                                "titulo": "Más Allá de la Técnica: El Diorama como Arte",
+                                "contenido": {
+                                    "dominio_invisible": "Técnicas como instinto. Herramienta desaparece, queda la visión.",
+                                    "narrativa_visual": "Cada diorama cuenta una historia. Suciedad, óxido, luz tienen propósito. ¿Qué pasó aquí?",
+                                    "estilo_personal": "Dioramas reconocibles. Suma de decisiones artísticas. No copies, evoluciona tu voz.",
+                                    "innovacion_experimentacion": "Inventa nuevas mezclas, adapta materiales, crea herramientas. La innovación nace de la curiosidad y la disposición a fallar.",
+                                    "ensenanza_legado": "Comparte conocimiento. Documenta procesos. Tu legado es lo que inspiras en otros.",
+                                    "integracion_multidisciplinar": "Combina pintura con escultura, iluminación, sonido, interactividad. El diorama es una instalación artística, una experiencia sensorial completa.",
+                                    "filosofia": "Acto de presencia, meditación activa, refugio de calma y creación. Satisfacción de construir algo tangible, narrativo y visualmente impactante."
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "glosario": [
+                    {
+                        "termino": "Acrílico (Pintura)",
+                        "definicion": "Tipo de pintura a base de agua, de secado rápido y baja toxicidad. Ideal para principiantes y para técnicas como veladuras y capas rápidas."
+                    },
+                    {
+                        "termino": "Adhesivo de Contacto",
+                        "definicion": "Pegamento que se aplica en ambas superficies, se deja secar hasta que está táctil y luego se unen para una adhesión instantánea y fuerte."
+                    },
+                    {
+                        "termino": "Adhesivo PVA (PoliVinil Acetato)",
+                        "definicion": "Pegamento blanco, a base de agua, no tóxico y versátil. Usado para pegar materiales porosos, sellar superficies y como medio para fijar pigmentos."
+                    },
+                    {
+                        "termino": "Aerógrafo",
+                        "definicion": "Herramienta que pulveriza pintura mediante aire comprimido, permitiendo aplicaciones suaves, degradados y capas uniformes sin marcas de pincel."
+                    },
+                    {
+                        "termino": "Agua Destilada",
+                        "definicion": "Agua purificada, sin minerales ni impurezas. Esencial para diluir pinturas acrílicas y limpiar herramientas sin dejar residuos."
+                    },
+                    {
+                        "termino": "Alcohol Isopropílico",
+                        "definicion": "Solvente utilizado para diluir acrílicos, limpiar aerógrafos y desengrasar superficies. Más efectivo que el agua para ciertas aplicaciones."
+                    },
+                    {
+                        "termino": "Alfileres de Metal",
+                        "definicion": "Usados para fijar miniaturas de forma mecánica, especialmente en terrenos irregulares, proporcionando una sujeción muy estable."
+                    },
+                    {
+                        "termino": "Ánodo",
+                        "definicion": "Terminal positivo (+) de un LED. La pata más larga en LEDs de montaje through-hole."
+                    },
+                    {
+                        "termino": "Arcilla de Secado al Aire",
+                        "definicion": "Material de modelado que se endurece al exponerse al aire, sin necesidad de horno. Económico pero con menor detalle que otros."
+                    },
+                    {
+                        "termino": "Arcilla Epoxi (Ej: Green Stuff, Milliput)",
+                        "definicion": "Material de dos componentes que, al mezclarse, se endurece químicamente. Muy resistente, ideal para reparaciones y escultura de detalles."
+                    },
+                    {
+                        "termino": "Arcilla Polimérica (Ej: Fimo, Sculpey)",
+                        "definicion": "Material de modelado que se endurece al hornearlo. Ofrece un excelente nivel de detalle y es reutilizable antes de hornear."
+                    },
+                    {
+                        "termino": "Armature (Armadura)",
+                        "definicion": "Estructura interna de soporte, generalmente hecha de alambre, que sirve como esqueleto para esculturas, proporcionando estabilidad y forma básica."
+                    },
+                    {
+                        "termino": "Atmósfera (Perspectiva Atmosférica)",
+                        "definicion": "Técnica de pintura que simula la distancia haciendo que los objetos lejanos tengan colores más apagados, desaturados y azulados, y menos detalle."
+                    },
+                    {
+                        "termino": "Barniz",
+                        "definicion": "Capa protectora transparente que se aplica sobre la pintura para protegerla de arañazos, polvo y decoloración. Puede ser mate, satinado o brillante."
+                    },
+                    {
+                        "termino": "Bicarbonato de Sodio",
+                        "definicion": "Material casero usado en recetas DIY para crear texturas de nieve, como componente en masillas caseras o para modificar la adherencia de imprimaciones."
+                    },
+                    {
+                        "termino": "Bisturí de Modelismo",
+                        "definicion": "Cuchilla de precisión con hojas intercambiables, esencial para cortes finos y detallados en materiales como plástico y cartón."
+                    },
+                    {
+                        "termino": "Buril",
+                        "definicion": "Herramienta de modelado con punta fina, usada para tallar detalles, crear líneas o remover material con precisión."
+                    },
+                    {
+                        "termino": "Cableado en Paralelo",
+                        "definicion": "Método de conexión eléctrica donde cada componente (como un LED) tiene su propio camino hacia la fuente de alimentación, permitiendo que funcionen independientemente."
+                    },
+                    {
+                        "termino": "Calibrador",
+                        "definicion": "Herramienta de medición de precisión que permite medir espesores, diámetros internos y externos con gran exactitud."
+                    },
+                    {
+                        "termino": "Cartón Pluma",
+                        "definicion": "Material compuesto por dos láminas de cartón con un núcleo de espuma. Ligero y rígido, ideal para bases de dioramas."
+                    },
+                    {
+                        "termino": "Cátodo",
+                        "definicion": "Terminal negativo (–) de un LED. La pata más corta en LEDs de montaje through-hole."
+                    },
+                    {
+                        "termino": "Cemento de Modelismo",
+                        "definicion": "Material de reproducción, similar al yeso pero más resistente, usado para crear piezas realistas como muros o suelos."
+                    },
+                    {
+                        "termino": "Chipping",
+                        "definicion": "Técnica de envejecimiento que simula la pintura descascarada, revelando la capa inferior (generalmente metal o imprimación). Se logra con cinta, film adhesivo o disolvente."
+                    },
+                    {
+                        "termino": "Cianoacrilato (CA / Superpegamento)",
+                        "definicion": "Adhesivo de secado rápido y muy fuerte, ideal para uniones precisas y pequeñas. Requiere ventilación."
+                    },
+                    {
+                        "termino": "Cinta de Carrocero",
+                        "definicion": "Cinta adhesiva de papel, fácil de romper y con adhesivo de baja resistencia, ideal para enmascarar áreas durante la pintura."
+                    },
+                    {
+                        "termino": "Cinta de Doble Cara",
+                        "definicion": "Cinta adhesiva con pegamento en ambas caras, usada para fijar elementos sin necesidad de clavos o tornillos."
+                    },
+                    {
+                        "termino": "Cloruro de Polivinilo (PVC) / Plasticard",
+                        "definicion": "Hojas de plástico rígido (estireno) de diferentes grosores, fácil de cortar y unir, muy usado para construir edificios y estructuras."
+                    },
+                    {
+                        "termino": "Compresor (para Aerógrafo)",
+                        "definicion": "Dispositivo que suministra aire comprimido al aerógrafo. Debe tener regulador de presión y trampa de humedad."
+                    },
+                    {
+                        "termino": "Composición Visual",
+                        "definicion": "La disposición de los elementos dentro del diorama para crear equilibrio, guiar la mirada del espectador y establecer un punto focal."
+                    },
+                    {
+                        "termino": "Corcho (Natural/Prensado)",
+                        "definicion": "Material ligero y poroso, usado para crear volúmenes en el terreno o como textura."
+                    },
+                    {
+                        "termino": "Craquelado",
+                        "definicion": "Técnica que crea un patrón de grietas en la capa de pintura superior, simulando el paso del tiempo. Se usa un medium craquelador."
+                    },
+                    {
+                        "termino": "Cuchilla Caliente",
+                        "definicion": "Herramienta que usa un filamento calentado para cortar espuma de poliestireno con bordes limpios y sin desmenuzar."
+                    },
+                    {
+                        "termino": "Desmoldeante",
+                        "definicion": "Producto (spray o líquido) que se aplica sobre el original antes de hacer un molde, para evitar que la silicona se adhiera a él."
+                    },
+                    {
+                        "termino": "Difusor (Luz)",
+                        "definicion": "Material (como papel de seda, papel de calco o plástico translúcido) que se coloca delante de una fuente de luz (LED) para suavizar y dispersar el haz, evitando puntos de luz duros."
+                    },
+                    {
+                        "termino": "Diluyente",
+                        "definicion": "Líquido que se mezcla con la pintura para modificar su viscosidad. Varía según el tipo de pintura (agua para acrílicos, aguarrás para esmaltes, etc.)."
+                    },
+                    {
+                        "termino": "Diodo Emisor de Luz (LED)",
+                        "definicion": "Componente electrónico que emite luz cuando una corriente eléctrica lo atraviesa. Esencial para la iluminación de dioramas."
+                    },
+                    {
+                        "termino": "Diorama de Caja",
+                        "definicion": "El tipo más común de diorama, construido dentro de una caja con un frente abierto que enmarca la escena para el espectador."
+                    },
+                    {
+                        "termino": "Diorama Panorámico",
+                        "definicion": "Diorama que ofrece una visión de 360 grados, permitiendo al espectador rodearlo para una inmersión completa."
+                    },
+                    {
+                        "termino": "Dremel / Multiherramienta Rotativa",
+                        "definicion": "Herramienta eléctrica versátil con múltiples accesorios (fresas, lijas, cepillos) para tallar, lijar, pulir y cortar."
+                    },
+                    {
+                        "termino": "Efecto Estroboscópico / Flame/Flicker",
+                        "definicion": "Tipo de LED que parpadea automáticamente con patrones aleatorios, ideal para simular fuego, alarmas o neones."
+                    },
+                    {
+                        "termino": "End-Glow (Fibra Óptica)",
+                        "definicion": "Tipo de fibra óptica donde la luz solo se emite desde el extremo cortado, ideal para simular estrellas, faros o puntos de luz."
+                    },
+                    {
+                        "termino": "Epoxi (Resina/Pegamento)",
+                        "definicion": "Material de dos componentes que, al mezclarse, se endurece formando un enlace muy fuerte y duradero. Se usa para uniones estructurales, moldes (resina) o para simular agua (resina epoxi)."
+                    },
+                    {
+                        "termino": "Escalímetro",
+                        "definicion": "Regla especializada que contiene múltiples escalas (1:24, 1:35, 1:72, etc.) para medir y dibujar planos a escala reducida con precisión."
+                    },
+                    {
+                        "termino": "Escayola",
+                        "definicion": "Material de reproducción similar al yeso, económico y fácil de usar, pero más frágil."
+                    },
+                    {
+                        "termino": "Escultura Aditiva",
+                        "definicion": "Técnica de escultura que consiste en añadir material (arcilla, masilla) sobre una armadura para construir la forma deseada."
+                    },
+                    {
+                        "termino": "Escultura Sustractiva",
+                        "definicion": "Técnica de escultura que consiste en tallar o eliminar material (espuma, madera) de un bloque para revelar la forma deseada."
+                    },
+                    {
+                        "termino": "Espuma de Poliestireno (XPS/EPS)",
+                        "definicion": "Material ligero y fácil de tallar, usado para crear volúmenes grandes en el terreno o estructuras. XPS es más denso y liso que EPS."
+                    },
+                    {
+                        "termino": "Espátula (de Modelar)",
+                        "definicion": "Herramienta con hoja plana o curva, usada para aplicar, alisar o modelar masillas y pastas."
+                    },
+                    {
+                        "termino": "Esponjado",
+                        "definicion": "Técnica de pintura que utiliza una esponja para aplicar o quitar pintura de forma irregular, creando texturas como moho, óxido o tierra."
+                    },
+                    {
+                        "termino": "Estireno (Plasticard)",
+                        "definicion": "Véase \"Plasticard\"."
+                    },
+                    {
+                        "termino": "Esmalte (Pintura)",
+                        "definicion": "Pintura que se diluye con aguarrás y seca lentamente. Ofrece un acabado muy duro y duradero, ideal para lavados y envejecimiento."
+                    },
+                    {
+                        "termino": "Fibra Óptica de Plástico (POF)",
+                        "definicion": "Hilo delgado de plástico que conduce la luz desde un extremo al otro mediante reflexión interna. Usada para crear puntos de luz mínimos y realistas."
+                    },
+                    {
+                        "termino": "Filbert (Pincel Lengua de Gato)",
+                        "definicion": "Tipo de pincel con forma ovalada en la punta, que combina las propiedades de los pinceles redondos y planos, ideal para difuminados."
+                    },
+                    {
+                        "termino": "Flocado / Hierba Electrostática (Césped Estático)",
+                        "definicion": "Fibras sintéticas finas que, al ser cargadas electrostáticamente, se mantienen erguidas sobre una superficie encolada, creando un efecto de vegetación muy realista."
+                    },
+                    {
+                        "termino": "Flow Improver (Mejorador de Flujo)",
+                        "definicion": "Aditivo que se añade a la pintura acrílica para mejorar su fluidez y evitar que se seque demasiado rápido en la boquilla del aerógrafo."
+                    },
+                    {
+                        "termino": "Fuente de Alimentación (para LEDs)",
+                        "definicion": "Dispositivo que proporciona la energía eléctrica necesaria (voltaje y corriente) para que los LEDs funcionen. Puede ser una pila, un power bank o un adaptador AC/DC."
+                    },
+                    {
+                        "termino": "Glicerina Líquida",
+                        "definicion": "Aditivo usado en recetas DIY para retardar el secado de la pintura acrílica, permitiendo más tiempo para trabajar y difuminar."
+                    },
+                    {
+                        "termino": "Glaseado (Glaze)",
+                        "definicion": "Véase \"Veladura\"."
+                    },
+                    {
+                        "termino": "Harina de Maíz (Maicena)",
+                        "definicion": "Ingrediente usado en recetas DIY de masillas caseras para dar textura y cuerpo."
+                    },
+                    {
+                        "termino": "Hierba Electrostática",
+                        "definicion": "Véase \"Flocado\"."
+                    },
+                    {
+                        "termino": "Horno (para Arcilla Polimérica)",
+                        "definicion": "Dispositivo necesario para endurecer la arcilla polimérica. Debe alcanzar temperaturas específicas (110-130°C) y tener un termómetro para controlar."
+                    },
+                    {
+                        "termino": "Hueco Húmedo (Wet Edge)",
+                        "definicion": "Técnica de pintura que consiste en mantener el borde de la zona pintada húmedo para evitar marcas al aplicar la siguiente capa."
+                    },
+                    {
+                        "termino": "Imprimación (Primer)",
+                        "definicion": "Capa base que se aplica antes de la pintura para preparar la superficie, mejorar la adherencia y resaltar los detalles. Puede ser negra, blanca o gris."
+                    },
+                    {
+                        "termino": "Interruptor (Eléctrico)",
+                        "definicion": "Dispositivo que permite abrir o cerrar un circuito eléctrico, controlando así el encendido y apagado de la iluminación."
+                    },
+                    {
+                        "termino": "Laca (Pintura)",
+                        "definicion": "Pintura que se diluye con solventes muy potentes, de secado ultrarrápido y alto brillo. Ofrece una cobertura y dureza excepcionales, ideal para vehículos."
+                    },
+                    {
+                        "termino": "Lavado (Wash)",
+                        "definicion": "Técnica que consiste en aplicar pintura muy diluida (generalmente esmalte u óleo) que fluye hacia las grietas, hendiduras y áreas bajas para acentuar los detalles y crear sombras."
+                    },
+                    {
+                        "termino": "LED de 5mm (Through-Hole)",
+                        "definicion": "Tipo de LED clásico, con cuerpo redondo y dos patas, fácil de manejar y soldar."
+                    },
+                    {
+                        "termino": "LED SMD (Surface Mount Device)",
+                        "definicion": "Tipo de LED muy pequeño y plano, diseñado para montarse directamente sobre una superficie. Ideal para iluminación puntual y oculta."
+                    },
+                    {
+                        "termino": "Ley de Ohm (para LEDs)",
+                        "definicion": "Fórmula (R = (V_fuente – V_LED) / I_LED) usada para calcular la resistencia limitadora necesaria para proteger un LED."
+                    },
+                    {
+                        "termino": "Lija (de Agua/Seca)",
+                        "definicion": "Papel abrasivo usado para suavizar superficies, eliminar imperfecciones o crear texturas. Los granos van desde muy gruesos (80) hasta muy finos (2000)."
+                    },
+                    {
+                        "termino": "Masilla de Modelar (Ej: Das)",
+                        "definicion": "Compuesto que se usa para rellenar, esculpir o crear texturas. Puede secar al aire o requerir mezcla de dos componentes."
+                    },
+                    {
+                        "termino": "Medium Craquelador",
+                        "definicion": "Producto que, aplicado entre dos capas de pintura, provoca que la capa superior se agriete al secarse, creando un efecto de envejecimiento."
+                    },
+                    {
+                        "termino": "MDF (Medium Density Fibreboard)",
+                        "definicion": "Tablero de fibra de madera de densidad media. Muy estable y liso, ideal para bases de dioramas que requieren rigidez."
+                    },
+                    {
+                        "termino": "Modelado Aditivo",
+                        "definicion": "Véase \"Escultura Aditiva\"."
+                    },
+                    {
+                        "termino": "Modelado Sustractivo",
+                        "definicion": "Véase \"Escultura Sustractiva\"."
+                    },
+                    {
+                        "termino": "Óleo (Pintura)",
+                        "definicion": "Pintura que se diluye con aguarrás y seca muy lentamente. Ideal para envejecimiento, difuminados y lavados por su larga manipulabilidad."
+                    },
+                    {
+                        "termino": "Pasta para Modelar",
+                        "definicion": "Material similar a la masilla, pero a menudo más ligero, usado para crear volúmenes y texturas en el terreno."
+                    },
+                    {
+                        "termino": "Pátina",
+                        "definicion": "Capa de corrosión que se forma en metales como el cobre o el bronce, de color verde o azulado. En modelismo, se simula con pinturas y pigmentos."
+                    },
+                    {
+                        "termino": "Pegamento Caliente",
+                        "definicion": "Adhesivo termoplástico que se funde con calor y se solidifica al enfriarse. Rápido, pero no recomendado para piezas que generarán calor (como LEDs)."
+                    },
+                    {
+                        "termino": "Pegamento en Spray",
+                        "definicion": "Adhesivo que se aplica en aerosol, ideal para cubrir grandes superficies de forma uniforme."
+                    },
+                    {
+                        "termino": "Pigmento",
+                        "definicion": "Polvo de color que se aplica en seco sobre una superficie para simular polvo, óxido, barro o suciedad. Se fija con un medio (como PVA diluido o barniz mate)."
+                    },
+                    {
+                        "termino": "Pincel Seco",
+                        "definicion": "Técnica que resalta los relieves y texturas aplicando una mínima cantidad de pintura con un pincel casi seco, rozando la superficie."
+                    },
+                    {
+                        "termino": "Pincel Lengua de Gato (Filbert)",
+                        "definicion": "Véase \"Filbert\"."
+                    },
+                    {
+                        "termino": "Pinza de Cocodrilo",
+                        "definicion": "Herramienta de sujeción con mandíbulas dentadas, usada en aplicadores de hierba electrostática para conectar la base a tierra."
+                    },
+                    {
+                        "termino": "Plástico de Estireno (Plasticard)",
+                        "definicion": "Véase \"Plasticard\"."
+                    },
+                    {
+                        "termino": "Plasticard",
+                        "definicion": "Hojas de plástico rígido (estireno) de diferentes grosores, fácil de cortar y unir, muy usado para construir edificios y estructuras."
+                    },
+                    {
+                        "termino": "Polaridad (LED)",
+                        "definicion": "La dirección en la que debe fluir la corriente para que el LED funcione. Conectarlo al revés (polaridad invertida) impide que se encienda."
+                    },
+                    {
+                        "termino": "Porexpán (Espuma de Poliestireno Expandido - EPS)",
+                        "definicion": "Material ligero y frágil, usado para crear volúmenes en el terreno. Se corta fácilmente pero se desmenuza."
+                    },
+                    {
+                        "termino": "Protocolo Experimental",
+                        "definicion": "Método científico para probar y comparar la eficacia de diferentes materiales o técnicas en condiciones controladas."
+                    },
+                    {
+                        "termino": "PVA (PoliVinil Acetato)",
+                        "definicion": "Véase \"Adhesivo PVA\"."
+                    },
+                    {
+                        "termino": "Regla de los Tercios",
+                        "definicion": "Principio de composición visual que divide el cuadro en nueve partes iguales. Colocar los puntos de interés en las intersecciones crea una imagen más equilibrada y atractiva."
+                    },
+                    {
+                        "termino": "Resina (Epoxi/Poliéster)",
+                        "definicion": "Material de dos componentes que se usa para reproducir piezas a partir de un molde. La epoxi es más fácil de manejar y menos tóxica que la poliéster."
+                    },
+                    {
+                        "termino": "Resistencia Limitadora (para LED)",
+                        "definicion": "Componente electrónico que se coloca en serie con un LED para reducir la corriente que lo atraviesa, protegiéndolo de quemarse."
+                    },
+                    {
+                        "termino": "Retardador",
+                        "definicion": "Aditivo que se mezcla con la pintura acrílica para ralentizar su tiempo de secado, permitiendo más tiempo para trabajar y difuminar."
+                    },
+                    {
+                        "termino": "RGB (LED)",
+                        "definicion": "Tipo de LED que puede emitir luz roja, verde y azul, y por mezcla, cualquier color del espectro."
+                    },
+                    {
+                        "termino": "RTV-1 (Silicona de Estaño)",
+                        "definicion": "Tipo de silicona de curado por condensación, más económica que la RTV-2, pero menos duradera y con menor definición de detalle."
+                    },
+                    {
+                        "termino": "RTV-2 (Silicona de Platino)",
+                        "definicion": "Tipo de silicona de curado por adición, de alta calidad, que no se adhiere a nada y captura detalles finos. Ideal para moldes profesionales."
+                    },
+                    {
+                        "termino": "Sellador",
+                        "definicion": "Producto que se aplica para proteger una superficie porosa (como yeso o espuma) antes de pintar, evitando que la pintura sea absorbida de forma desigual."
+                    },
+                    {
+                        "termino": "Side-Glow (Fibra Óptica)",
+                        "definicion": "Tipo de fibra óptica donde la luz se emite a lo largo de toda su longitud, ideal para simular neones o líneas luminosas."
+                    },
+                    {
+                        "termino": "Silicona (RTV-1/RTV-2)",
+                        "definicion": "Material elástico y resistente usado para hacer moldes flexibles. RTV-1 (estaño) y RTV-2 (platino) se diferencian en calidad y método de curado."
+                    },
+                    {
+                        "termino": "SMD (Surface Mount Device)",
+                        "definicion": "Véase \"LED SMD\"."
+                    },
+                    {
+                        "termino": "Soldadura (Estaño)",
+                        "definicion": "Proceso de unir componentes electrónicos (como LEDs y cables) usando un metal de aportación (estaño) fundido con un soldador."
+                    },
+                    {
+                        "termino": "Tira LED Flexible",
+                        "definicion": "Serie de LEDs SMD montados sobre una cinta adhesiva flexible, ideal para iluminar áreas amplias o contornos."
+                    },
+                    {
+                        "termino": "Tubo Termorretráctil",
+                        "definicion": "Tubo de plástico que, al aplicarle calor, se contrae y ajusta alrededor de una unión, aislando eléctricamente el cable."
+                    },
+                    {
+                        "termino": "Valor (en Color)",
+                        "definicion": "La claridad u oscuridad de un color. Un valor alto es claro (beige), un valor bajo es oscuro (gris plomo)."
+                    },
+                    {
+                        "termino": "Veladura (Glaze)",
+                        "definicion": "Capa de pintura acrílica extremadamente diluida y translúcida que se aplica para modificar el tono o la saturación del color base sin ocultar los detalles."
+                    },
+                    {
+                        "termino": "Ventana Difusora (para Fibra Óptica)",
+                        "definicion": "Pequeña abertura en el diorama donde se coloca el extremo de una fibra óptica para que emita la luz de forma controlada."
+                    },
+                    {
+                        "termino": "Yeso",
+                        "definicion": "Material de reproducción económico y fácil de usar, ideal para crear rocas, muros o suelos. Frágil comparado con la resina."
+                    },
+                    {
+                        "termino": "Zenithal (Imprimación Zenithal)",
+                        "definicion": "Técnica de imprimación que simula la luz cenital (desde arriba) aplicando colores claros en las zonas altas y oscuros en las bajas, creando un sombreado básico que guía la posterior aplicación de color."
+                    }
+                ],
+                "conclusion": "La verdadera maestría no es un punto final, sino un camino sin fin. Es la fusión perfecta de técnica, narrativa, estilo, innovación, enseñanza y multidisciplinariedad. Es cuando dejas de seguir reglas y empiezas a crearlas. Es cuando tu diorama no solo se mira, sino que se siente, se escucha y se recuerda. Este manual no es un libro de instrucciones. Es un manifiesto. Es tu mapa para convertirte en el artista que siempre quisiste ser. ¡Ahora, toma tu pincel, tu cuaderno y tu imaginación, y pinta tu propia historia! 🌟 La oscuridad nunca tuvo chance."
+            };
+
+            // Función para mostrar una pantalla
+            function showScreen(screenId) {
+                // Ocultar todas las pantallas
+                document.querySelectorAll('.screen').forEach(screen => {
+                    screen.classList.remove('active');
+                });
+                
+                // Mostrar la pantalla seleccionada
+                const screen = document.getElementById(screenId);
+                if (screen) {
+                    screen.classList.add('active');
+                    
+                    // Si es la pantalla de inicio, cargar el glosario
+                    if (screenId === 'screen-home') {
+                        loadGlosario();
+                    }
+                }
+            }
+
+            // Función para cargar el glosario en la pantalla inicial
+            function loadGlosario() {
+                const glosarioContainer = document.getElementById('glosario-completo');
+                glosarioContainer.innerHTML = '';
+                
+                data.glosario.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'glossary-item';
+                    div.innerHTML = `
+                        <p class="glossary-term">${item.termino}</p>
+                        <p>${item.definicion}</p>
+                    `;
+                    glosarioContainer.appendChild(div);
+                });
+            }
+
+            // Generar dinámicamente las pantallas de partes
+            function generatePartScreens() {
+                data.partes.forEach((parte, index) => {
+                    const partId = `screen-part-${parte.numero}`;
+                    const partDiv = document.createElement('div');
+                    partDiv.id = partId;
+                    partDiv.className = 'screen';
+                    partDiv.innerHTML = `
+                        <a href="#" class="btn-home" onclick="showScreen('screen-home'); return false;">Inicio</a>
+                        <h1>Parte ${parte.numero}: ${parte.titulo}</h1>
+                        <div id="part-${parte.numero}-chapters"></div>
+                    `;
+                    document.body.appendChild(partDiv);
+                    
+                    // Generar botones para los capítulos de esta parte
+                    setTimeout(() => {
+                        const chaptersContainer = document.getElementById(`part-${parte.numero}-chapters`);
+                        if (parte.capitulos) {
+                            parte.capitulos.forEach((capitulo, capIndex) => {
+                                const chapterBtn = document.createElement('button');
+                                chapterBtn.className = 'btn';
+                                chapterBtn.textContent = `Capítulo ${capitulo.numero}: ${capitulo.titulo}`;
+                                chapterBtn.onclick = () => {
+                                    generateChapterScreen(parte.numero, capIndex);
+                                    showScreen(`screen-chapter-${parte.numero}-${capitulo.numero}`);
+                                };
+                                chaptersContainer.appendChild(chapterBtn);
+                            });
+                        } else {
+                            // Para la Parte 0 que no tiene capítulos en el mismo formato
+                            const contentDiv = document.createElement('div');
+                            contentDiv.className = 'content-block';
+                            
+                            // Navegación
+                            const navDiv = document.createElement('div');
+                            navDiv.innerHTML = `
+                                <h2>0.1. Navegación</h2>
+                                <p>${parte.contenido.navegacion}</p>
+                            `;
+                            contentDiv.appendChild(navDiv);
+                            
+                            // Iconos de Referencia
+                            const iconsDiv = document.createElement('div');
+                            iconsDiv.innerHTML = `<h2>0.2. Iconos de Referencia</h2>`;
+                            parte.contenido.iconos_referencia.forEach(icon => {
+                                const iconItem = document.createElement('div');
+                                iconItem.innerHTML = `
+                                    <h3><span class="icon">${icon.icono}</span> ${icon.nombre}</h3>
+                                    <p>${icon.descripcion}</p>
+                                `;
+                                iconsDiv.appendChild(iconItem);
+                            });
+                            contentDiv.appendChild(iconsDiv);
+                            
+                            // Glosario (referencia)
+                            const glossaryRefDiv = document.createElement('div');
+                            glossaryRefDiv.innerHTML = `
+                                <h2>0.3. Glosario</h2>
+                                <p>${parte.contenido.glosario}</p>
+                            `;
+                            contentDiv.appendChild(glossaryRefDiv);
+                            
+                            chaptersContainer.appendChild(contentDiv);
+                        }
+                    }, 0);
+                });
+            }
+
+            // Generar dinámicamente las pantallas de capítulos
+            function generateChapterScreen(partNumber, chapterIndex) {
+                const chapter = data.partes.find(p => p.numero === partNumber).capitulos[chapterIndex];
+                const chapterId = `screen-chapter-${partNumber}-${chapter.numero}`;
+                
+                // Verificar si ya existe la pantalla
+                if (document.getElementById(chapterId)) {
+                    return;
+                }
+                
+                const chapterDiv = document.createElement('div');
+                chapterDiv.id = chapterId;
+                chapterDiv.className = 'screen';
+                chapterDiv.innerHTML = `
+                    <a href="#" class="btn-home" onclick="showScreen('screen-part-${partNumber}'); return false;">Inicio</a>
+                    <h1>Capítulo ${chapter.numero}: ${chapter.titulo}</h1>
+                    <div id="chapter-${partNumber}-${chapter.numero}-content"></div>
+                `;
+                document.body.appendChild(chapterDiv);
+                
+                // Generar contenido del capítulo
+                setTimeout(() => {
+                    const contentContainer = document.getElementById(`chapter-${partNumber}-${chapter.numero}-content`);
+                    generateChapterContent(contentContainer, chapter.contenido, partNumber, chapter.numero);
+                }, 0);
+            }
+
+            // Generar el contenido de un capítulo
+            function generateChapterContent(container, content, partNumber, chapterNumber) {
+                container.innerHTML = '';
+                
+                // Recorrer todas las propiedades del contenido
+                Object.keys(content).forEach((key, index) => {
+                    const sectionId = `screen-subsection-${partNumber}-${chapterNumber}-${index + 1}`;
+                    const sectionBtn = document.createElement('button');
+                    sectionBtn.className = 'btn';
+                    sectionBtn.textContent = `${chapterNumber}.${index + 1}. ${formatKeyToTitle(key)}`;
+                    sectionBtn.onclick = () => {
+                        generateSubsectionScreen(partNumber, chapterNumber, index + 1, content[key], key);
+                        showScreen(sectionId);
+                    };
+                    container.appendChild(sectionBtn);
+                });
+            }
+
+            // Generar dinámicamente las pantallas de subsecciones
+            function generateSubsectionScreen(partNumber, chapterNumber, subsectionNumber, content, key) {
+                const sectionId = `screen-subsection-${partNumber}-${chapterNumber}-${subsectionNumber}`;
+                
+                // Verificar si ya existe la pantalla
+                if (document.getElementById(sectionId)) {
+                    return;
+                }
+                
+                const sectionDiv = document.createElement('div');
+                sectionDiv.id = sectionId;
+                sectionDiv.className = 'screen';
+                sectionDiv.innerHTML = `
+                    <a href="#" class="btn-home" onclick="showScreen('screen-chapter-${partNumber}-${chapterNumber}'); return false;">Inicio</a>
+                    <h1>${chapterNumber}.${subsectionNumber}. ${formatKeyToTitle(key)}</h1>
+                    <div id="subsection-${partNumber}-${chapterNumber}-${subsectionNumber}-content" class="content-block"></div>
+                `;
+                document.body.appendChild(sectionDiv);
+                
+                // Generar contenido de la subsección
+                setTimeout(() => {
+                    const contentContainer = document.getElementById(`subsection-${partNumber}-${chapterNumber}-${subsectionNumber}-content`);
+                    renderContent(contentContainer, content);
+                }, 0);
+            }
+
+            // Renderizar el contenido según su tipo
+            function renderContent(container, content) {
+                container.innerHTML = '';
+                
+                if (typeof content === 'string') {
+                    container.innerHTML = `<p>${content}</p>`;
+                } else if (Array.isArray(content)) {
+                    if (content.length > 0 && typeof content[0] === 'string') {
+                        const ul = document.createElement('ul');
+                        content.forEach(item => {
+                            const li = document.createElement('li');
+                            li.textContent = item;
+                            ul.appendChild(li);
+                        });
+                        container.appendChild(ul);
+                    } else if (content.length > 0 && typeof content[0] === 'object') {
+                        content.forEach(item => {
+                            const itemDiv = document.createElement('div');
+                            itemDiv.style.marginBottom = '15px';
+                            itemDiv.style.padding = '10px';
+                            itemDiv.style.backgroundColor = '#f9f9f9';
+                            itemDiv.style.borderRadius = '5px';
+                            
+                            Object.keys(item).forEach(key => {
+                                const p = document.createElement('p');
+                                p.innerHTML = `<strong>${formatKeyToTitle(key)}:</strong> ${item[key]}`;
+                                itemDiv.appendChild(p);
+                            });
+                            
+                            container.appendChild(itemDiv);
+                        });
+                    }
+                } else if (typeof content === 'object') {
+                    Object.keys(content).forEach(key => {
+                        const sectionDiv = document.createElement('div');
+                        sectionDiv.style.marginBottom = '20px';
+                        
+                        const title = document.createElement('h3');
+                        title.textContent = formatKeyToTitle(key);
+                        sectionDiv.appendChild(title);
+                        
+                        renderContent(sectionDiv, content[key]);
+                        container.appendChild(sectionDiv);
+                    });
+                }
+            }
+
+            // Formatear claves a títulos legibles
+            function formatKeyToTitle(key) {
+                // Reemplazar guiones bajos y camelCase con espacios
+                return key
+                    .replace(/([a-z])([A-Z])/g, '$1 $2') // camelCase a espacios
+                    .replace(/_/g, ' ') // guiones bajos a espacios
+                    .replace(/\b\w/g, l => l.toUpperCase()); // Primera letra en mayúscula
+            }
+
+            // Inicializar la aplicación
+            document.addEventListener('DOMContentLoaded', function() {
+                generatePartScreens();
+            });
+        </script>
     </div>
-
-    <script>
-        // Función para mostrar la pantalla de inicio
-        function mostrarInicio() {
-            document.querySelectorAll('.pantalla').forEach(el => el.classList.add('oculto'));
-            document.getElementById('inicio').classList.remove('oculto');
-        }
-
-        // Función para mostrar un capítulo
-        function mostrarCapitulo(id) {
-            document.querySelectorAll('.pantalla').forEach(el => el.classList.add('oculto'));
-            document.getElementById(id).classList.remove('oculto');
-        }
-
-        // Función para mostrar una sección
-        function mostrarSeccion(id) {
-            document.querySelectorAll('.pantalla').forEach(el => el.classList.add('oculto'));
-            document.getElementById(id).classList.remove('oculto');
-        }
-
-        // Iniciar en la pantalla de inicio
-        window.onload = mostrarInicio;
-    </script>
-
-    <style>
-        .oculto {
-            display: none;
-        }
-        .pantalla {
-            animation: fadeIn 0.5s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-
 </body>
 </html>
